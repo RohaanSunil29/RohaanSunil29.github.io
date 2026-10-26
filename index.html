@@ -131,6 +131,39 @@ section{padding-block:64px}
 .case-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px 16px;flex-wrap:wrap}
 .case-head h3{flex:1 1 280px;min-width:0}
 .case-head .status{flex-shrink:0;margin-top:6px}
+.cover{display:block;width:100%;max-width:100%;height:200px;object-fit:cover;border-radius:16px}
+.takeaway{font-size:16px!important;color:var(--ink)!important;background:var(--bg-deep);border-radius:14px;padding:14px 18px}
+.takeaway span{display:block;font-style:italic;font-size:14px;color:var(--muted);margin-bottom:4px}
+details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:15px;font-weight:500;width:max-content;max-width:100%}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"↓";font-size:13px;transition:transform .2s}
+details.more summary:hover{border-color:var(--accent);color:var(--accent)}
+details.more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details.more[open] summary::after{transform:rotate(180deg)}
+details.more .when-open{display:none}
+details.more[open] .when-open{display:inline}
+details.more[open] .when-closed{display:none}
+details.more[open] summary{margin-bottom:20px}
+.example{margin-top:8px;display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
+.charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.chart{margin:0;background:var(--bg-deep);border-radius:16px;padding:16px;min-width:0}
+.chart figcaption{font-size:15px;font-weight:600;margin-bottom:8px}
+.chart svg{width:100%;height:auto;display:block;font-family:var(--f-body)}
+.chart .grid line{stroke:var(--line);stroke-width:1}
+.chart .axis text{font-size:12px;fill:var(--muted)}
+.chart .pts circle{fill:var(--muted);opacity:.55}
+.chart .pts text{font-size:12px;fill:var(--muted)}
+.chart .pts.hi circle{fill:var(--accent);opacity:1}
+.chart .pts.hi text{fill:var(--ink);font-weight:600}
+.chart .bars-svg rect{fill:var(--muted);opacity:.35}
+.chart .bars-svg rect.hi-b{fill:var(--accent);opacity:1}
+.chart .axis text.hi-t{fill:var(--ink);font-weight:600}
+.case,.role{transition:transform .3s ease,box-shadow .3s ease}
+.case:hover,.role:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(28,27,24,.08)}
+.pre{opacity:0;transform:translateY(18px)}
+@media (prefers-reduced-motion:no-preference){.in{animation:reveal .7s cubic-bezier(.2,.7,.2,1) backwards}@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
+@media (prefers-reduced-motion:reduce){.case:hover,.role:hover{transform:none}}
+@media (max-width:860px){.charts{grid-template-columns:minmax(0,1fr)}.cover{height:150px}}
 .case dl{margin:0;display:grid;gap:14px}
 .case dt{font-style:italic;font-size:16px;color:var(--accent)}
 .case dd{margin:2px 0 0;font-size:17px}
@@ -245,6 +278,7 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       <p class="lede-sub">I read markets country by country, uncover what customers value most, and turn it into <strong>Go-to-Market Plans</strong> and <strong>Dashboards</strong> that teams actually use.</p>
       <div class="cta">
         <a class="btn primary" href="#contact">Get in Touch</a>
+        <a class="btn" href="Rohaan_Sunil_CV.pdf" target="_blank" rel="noopener">Download CV ↓</a>
         <a class="btn" href="https://www.linkedin.com/in/rohaansunil" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn" href="https://github.com/RohaanSunil29" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
@@ -344,66 +378,80 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
     </div>
 
     <div class="cases">
-      <article class="case wide">
+      <article class="case wide reveal">
+        <img class="cover" src="images/cover-lowtech.webp" alt="Contemporary building with wooden shutters, from the project presentation" width="1200" height="330" loading="lazy">
         <div class="case-head"><h3>Analysing the Desirability of Low-Tech Solutions</h3><span class="status">Client Project</span></div>
-        <div class="split">
-          <div class="stack">
-            <p>Buildings account for 44% of France’s energy use (2023). The August 2023 heatwave and the April 2025 Iberian blackout showed that buildings must rely less on energy and keep people comfortable when systems fail. Low-tech solutions do this with less, yet few in the industry ask for them. The brief from Bouygues Construction: <strong>how do we make low-tech more desirable?</strong></p>
-            <dl>
-              <div><dt>Approach</dt><dd>Stakeholder mapping across five groups (project owners, consultants, designers, main contractors and end users), expert interviews and a questionnaire, then scoring five solutions against each group’s top priorities.</dd></div>
-              <div><dt>Key Findings</dt><dd>Natural ventilation, free cooling and mechanical switches (over sensors) performed best, yet stakeholders preferred bio-sourced insulation and reused materials. Cost came first for almost every group, and behaviour change, not technology, was the biggest barrier.</dd></div>
-              <div><dt>Recommendations</dt><dd>Communicate the benefits of the best performers, and lower cost and compliance hurdles for the solutions people already prefer. Each stakeholder group gets its own engagement plan, such as case studies and site visits for contractors, and workshops for end users.</dd></div>
-            </dl>
-          </div>
-          <div class="panel" aria-label="Key takeaway">
-            <p class="label">Key Takeaway</p>
-            <p class="note">The solution that performs best is not always the one people choose. Adoption depends on cost, habits and how each stakeholder sees the solution, so the same idea needs a different message for a contractor than for the people who live in the building.</p>
-            <p class="label" style="margin-top:20px">Also Delivered</p>
-            <p class="note">A stakeholder database and method the client can reuse to test more low-tech solutions.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case feature">
-        <div class="case-head" style="grid-column:1/-1"><h3>Comtesse du Barry: The “Renaissance Shift”</h3><span class="status">Client Project</span></div>
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <p>The brief from this heritage French gourmet brand: <strong>how do we reach new customers without losing our loyal base?</strong></p>
-          <dl>
-            <div><dt>Approach</dt><dd>SWOT, competitor insights and new customer segments.</dd></div>
-            <div><dt>Recommendations</dt><dd>A brand repositioning, a new product line (Apéro Kits), B2B partnerships and a phased Go-to-Market roll-out.</dd></div>
-          </dl>
-        </div>
-        <div class="funnel" aria-label="Go-to-market phases, illustrative">
-          <div>Insight <i>segments · competitors</i></div>
-          <div>Reposition <i>brand story</i></div>
-          <div>Product <i>Apéro Kits</i></div>
-          <div>Launch <i>phased GTM</i></div>
-        </div>
-      </article>
-
-      <article class="case wide">
-        <div class="case-head"><h3>Autonomous Vehicles: Who Captures the Value?</h3><span class="status">Strategy Research</span></div>
-        <div class="split">
-          <div class="stack">
-            <p>In February 2026, Uber launched Uber Autonomous Solutions, a platform covering everything above the vehicle: demand, data, fleet operations and insurance. The question, from the seat of a European carmaker’s CEO: <strong>is there still a viable way to capture value from autonomous mobility, and how?</strong></p>
-            <dl>
-              <div><dt>Approach</dt><dd>Hypothesis-driven, with a MECE issue tree across three questions: is the market accessible, which strategy gives the best risk-adjusted return, and what capabilities must be in place. Backed by interviews with experts at Aptiv and Kia Connect, and research from Goldman Sachs, McKinsey and Deloitte.</dd></div>
-              <div><dt>Key Findings</dt><dd>The bottleneck has moved from technology to commercialisation. Value is shifting to whoever owns the customer and the data. In Europe, the accessible market sits in a handful of dense city corridors, and the window to act is about 18 to 24 months.</dd></div>
-              <div><dt>Recommendations</dt><dd>Three moves, in order. Supply vehicles to Uber now, on non-exclusive terms with data rights, to fund the next step. Within six months, launch the carmaker’s own mobility service in one EU city, licensing the self-driving technology instead of building it. Keep full vertical integration as a five-year option through a minority stake in a technology partner.</dd></div>
-            </dl>
-            <div class="cta" style="margin-top:4px"><a class="btn" href="decks/autonomous-vehicles-strategy.pdf" target="_blank" rel="noopener">View Deck ↗</a></div>
-          </div>
-          <div class="panel" aria-label="Gross margin by layer">
-            <p class="label">Gross Margin by Layer</p>
-            <div class="bars">
-              <div class="bar"><span>Platform Operator</span><div class="track"><i style="width:90%"></i></div><b>40–50%</b></div>
-              <div class="bar"><span>Carmaker Hardware</span><div class="track"><i class="lo" style="width:20%"></i></div><b>5–10%</b></div>
+        <p>The brief from Bouygues Construction: <strong>how do we make low-tech more desirable?</strong></p>
+        <p class="takeaway"><span>Key Takeaway</span>The solution that performs best is not always the one people choose. The same idea needs a different message for a contractor than for the people who live in the building.</p>
+        <details class="more">
+          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
+          <div class="split">
+            <div class="stack">
+              <p>Buildings account for 44% of France’s energy use (2023). The August 2023 heatwave and the April 2025 Iberian blackout showed that buildings must rely less on energy and keep people comfortable when systems fail. Low-tech solutions do this with less, yet few in the industry ask for them.</p>
+              <dl>
+                <div><dt>Approach</dt><dd>Stakeholder mapping across five groups (project owners, consultants, designers, main contractors and end users), expert interviews and a questionnaire, then scoring five solutions against each group’s top priorities.</dd></div>
+                <div><dt>Key Findings</dt><dd>Natural ventilation, free cooling and mechanical switches (over sensors) performed best, yet stakeholders preferred bio-sourced insulation and reused materials. Cost came first for almost every group, and behaviour change, not technology, was the biggest barrier.</dd></div>
+                <div><dt>Recommendations</dt><dd>Communicate the benefits of the best performers, and lower cost and compliance hurdles for the solutions people already prefer. Each stakeholder group gets its own engagement plan, such as case studies and site visits for contractors, and workshops for end users.</dd></div>
+              </dl>
             </div>
-            <p class="note">Source: Goldman Sachs estimates. This gap is why “just supply the cars” is not enough.</p>
-            <p class="label" style="margin-top:20px">Key Takeaway</p>
-            <p class="note">Building the best technology does not guarantee the profits. In platform markets, whoever owns the customer and the data sets the terms, so for a carmaker the order and timing of its moves matter as much as which strategy it picks.</p>
+            <div class="panel" aria-label="Also delivered">
+              <p class="label">Also Delivered</p>
+              <p class="note">A stakeholder database and method the client can reuse to test more low-tech solutions.</p>
+            </div>
           </div>
-        </div>
+        </details>
+      </article>
+
+      <article class="case wide reveal">
+        <img class="cover" src="images/cover-comtesse.webp" alt="Comtesse du Barry shopfront, from the project presentation" width="1200" height="360" loading="lazy">
+        <div class="case-head"><h3>Comtesse du Barry: The “Renaissance Shift”</h3><span class="status">Client Project</span></div>
+        <p>The brief from this heritage French gourmet brand: <strong>how do we reach new customers without losing our loyal base?</strong></p>
+        <details class="more">
+          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
+          <div class="split">
+            <div class="stack">
+              <dl>
+                <div><dt>Approach</dt><dd>SWOT, competitor insights and new customer segments.</dd></div>
+                <div><dt>Recommendations</dt><dd>A brand repositioning, a new product line (Apéro Kits), B2B partnerships and a phased Go-to-Market roll-out.</dd></div>
+              </dl>
+            </div>
+            <div class="funnel" aria-label="Go-to-market phases, illustrative">
+              <div>Insight <i>segments · competitors</i></div>
+              <div>Reposition <i>brand story</i></div>
+              <div>Product <i>Apéro Kits</i></div>
+              <div>Launch <i>phased GTM</i></div>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <article class="case wide reveal">
+        <img class="cover" src="images/cover-av.webp" alt="Aerial view of motorway interchanges, from the project presentation" width="1200" height="420" loading="lazy">
+        <div class="case-head"><h3>Autonomous Vehicles: Who Captures the Value?</h3><span class="status">Strategy Research</span></div>
+        <p>From the seat of a European carmaker’s CEO, after Uber launched its autonomous mobility platform: <strong>is there still a viable way to capture value from autonomous mobility, and how?</strong></p>
+        <p class="takeaway"><span>Key Takeaway</span>Building the best technology does not guarantee the profits. Whoever owns the customer and the data sets the terms, so the order and timing of a carmaker’s moves matter as much as the strategy itself.</p>
+        <details class="more">
+          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
+          <div class="split">
+            <div class="stack">
+              <p>In February 2026, Uber launched Uber Autonomous Solutions, a platform covering everything above the vehicle: demand, data, fleet operations and insurance.</p>
+              <dl>
+                <div><dt>Approach</dt><dd>Hypothesis-driven, with a MECE issue tree across three questions: is the market accessible, which strategy gives the best risk-adjusted return, and what capabilities must be in place. Backed by interviews with experts at Aptiv and Kia Connect, and research from Goldman Sachs, McKinsey and Deloitte.</dd></div>
+                <div><dt>Key Findings</dt><dd>The bottleneck has moved from technology to commercialisation. Value is shifting to whoever owns the customer and the data. In Europe, the accessible market sits in a handful of dense city corridors, and the window to act is about 18 to 24 months.</dd></div>
+                <div><dt>Recommendations</dt><dd>Three moves, in order. Supply vehicles to Uber now, on non-exclusive terms with data rights, to fund the next step. Within six months, launch the carmaker’s own mobility service in one EU city, licensing the self-driving technology instead of building it. Keep full vertical integration as a five-year option through a minority stake in a technology partner.</dd></div>
+              </dl>
+              <div class="cta" style="margin-top:4px"><a class="btn" href="decks/autonomous-vehicles-strategy.pdf" target="_blank" rel="noopener">View Deck ↗</a></div>
+            </div>
+            <div class="panel" aria-label="Gross margin by layer">
+              <p class="label">Gross Margin by Layer</p>
+              <div class="bars">
+                <div class="bar"><span>Platform Operator</span><div class="track"><i style="width:90%"></i></div><b>40–50%</b></div>
+                <div class="bar"><span>Carmaker Hardware</span><div class="track"><i class="lo" style="width:20%"></i></div><b>5–10%</b></div>
+              </div>
+              <p class="note">Source: Goldman Sachs estimates. This gap is why “just supply the cars” is not enough.</p>
+            </div>
+          </div>
+        </details>
       </article>
     </div>
 
@@ -447,6 +495,55 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <li>Helps decide <strong>where to differentiate and where to match rivals</strong>, and feeds <strong>product strategy</strong>, <strong>sales battle cards</strong> or <strong>leadership updates</strong>.</li>
         </ul>
         <div class="tags"><span class="tag">Competitor Analysis</span><span class="tag">Pricing &amp; Features</span><span class="tag">Positioning</span><span class="tag">SWOT</span><span class="tag">Recommendations</span></div>
+        <div class="example">
+          <p class="label">Example Output · Citroën EV Competitive Brief, France</p>
+          <div class="charts">
+            <figure class="chart">
+              <figcaption>Entry price vs range, electric city cars</figcaption>
+              <svg viewBox="0 0 560 340" role="img" aria-label="Scatter chart of entry list price against WLTP range for seven electric city cars in France, October 2026">
+                <g class="grid">
+                  <line x1="60" y1="310" x2="540" y2="310"/><line x1="60" y1="216.7" x2="540" y2="216.7"/><line x1="60" y1="123.3" x2="540" y2="123.3"/><line x1="60" y1="30" x2="540" y2="30"/>
+                </g>
+                <g class="axis">
+                  <text x="52" y="314" text-anchor="end">200</text><text x="52" y="220.7" text-anchor="end">250</text><text x="52" y="127.3" text-anchor="end">300</text><text x="52" y="34" text-anchor="end">350 km</text>
+                  <text x="106" y="330" text-anchor="middle">€18k</text><text x="198" y="330" text-anchor="middle">€20k</text><text x="290" y="330" text-anchor="middle">€22k</text><text x="382" y="330" text-anchor="middle">€24k</text><text x="474" y="330" text-anchor="middle">€26k</text>
+                </g>
+                <g class="pts">
+                  <circle cx="101.4" cy="216.7" r="6"/><text x="111" y="221">Dacia Spring</text>
+                  <circle cx="174.5" cy="192.4" r="6"/><text x="184" y="188">Renault Twingo</text>
+                  <circle cx="427.5" cy="100.9" r="6"/><text x="437" y="114">Renault 5</text>
+                  <circle cx="427.8" cy="69.2" r="6"/><text x="437" y="65">VW ID.Polo</text>
+                  <circle cx="450.5" cy="86" r="6"/><text x="460" y="90">Grande Panda</text>
+                </g>
+                <g class="pts hi">
+                  <circle cx="197.5" cy="285.7" r="7"/><text x="208" y="290">Citroën ë-C3 (30 kWh)</text>
+                  <circle cx="356.7" cy="78.5" r="7"/><text x="346" y="74" text-anchor="end">Citroën ë-C3 (44 kWh)</text>
+                </g>
+              </svg>
+            </figure>
+            <figure class="chart">
+              <figcaption>Top 10 electric cars in France, September 2026</figcaption>
+              <svg viewBox="0 0 560 340" role="img" aria-label="Bar chart of new registrations in September 2026: Tesla Model Y 8,183, Renault 5 5,224, Renault Twingo 4,992, Peugeot e-208 3,274, Renault Scénic 2,738, Citroën ë-C3 2,696, Peugeot e-3008 1,643, Skoda Elroq 1,457, VW ID.4 1,414, Renault Mégane 1,254">
+                <g class="axis">
+                  <text x="170" y="27" text-anchor="end">Tesla Model Y</text><text x="170" y="59" text-anchor="end">Renault 5</text><text x="170" y="91" text-anchor="end">Renault Twingo</text><text x="170" y="123" text-anchor="end">Peugeot e-208</text><text x="170" y="155" text-anchor="end">Renault Scénic</text>
+                  <text x="170" y="187" text-anchor="end" class="hi-t">Citroën ë-C3</text>
+                  <text x="170" y="219" text-anchor="end">Peugeot e-3008</text><text x="170" y="251" text-anchor="end">Skoda Elroq</text><text x="170" y="283" text-anchor="end">VW ID.4</text><text x="170" y="315" text-anchor="end">Renault Mégane</text>
+                </g>
+                <g class="bars-svg">
+                  <rect x="180" y="12" width="300" height="20" rx="3"/><rect x="180" y="44" width="191.5" height="20" rx="3"/><rect x="180" y="76" width="183" height="20" rx="3"/><rect x="180" y="108" width="120" height="20" rx="3"/><rect x="180" y="140" width="100.4" height="20" rx="3"/>
+                  <rect x="180" y="172" width="98.8" height="20" rx="3" class="hi-b"/>
+                  <rect x="180" y="204" width="60.2" height="20" rx="3"/><rect x="180" y="236" width="53.4" height="20" rx="3"/><rect x="180" y="268" width="51.8" height="20" rx="3"/><rect x="180" y="300" width="46" height="20" rx="3"/>
+                </g>
+                <g class="axis vals">
+                  <text x="486" y="27">8,183</text><text x="377.5" y="59">5,224</text><text x="369" y="91">4,992</text><text x="306" y="123">3,274</text><text x="286.4" y="155">2,738</text>
+                  <text x="284.8" y="187" class="hi-t">2,696</text>
+                  <text x="246.2" y="219">1,643</text><text x="239.4" y="251">1,457</text><text x="237.8" y="283">1,414</text><text x="232" y="315">1,254</text>
+                </g>
+              </svg>
+            </figure>
+          </div>
+          <p class="note">Sources: manufacturer price lists and French motoring press (list prices before aids, WLTP range); AAA Data via Beev (registrations).</p>
+        </div>
         <div class="cta" style="margin-top:4px"><a class="btn" href="https://github.com/RohaanSunil29/AI-Projects" target="_blank" rel="noopener">View on GitHub ↗</a></div>
       </article>
     </div>
@@ -546,6 +643,18 @@ document.querySelectorAll('.copy').forEach(function(b){
   });
 });
 </script>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  var els=[].slice.call(document.querySelectorAll('.role,.case,.kit > div,.edu article'));
+  var vh=window.innerHeight||800;
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){ if(e.getBoundingClientRect().top>vh){ e.classList.add('pre'); io.observe(e); } });
+  setTimeout(function(){ els.forEach(function(e){ e.classList.remove('pre'); }); },8000);
+})();
+</script>
+
 
 </body>
 </html>
