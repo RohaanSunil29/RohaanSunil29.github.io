@@ -165,6 +165,8 @@ details.more[open] summary{margin-bottom:20px}
 @media (prefers-reduced-motion:no-preference){.in{animation:reveal .7s cubic-bezier(.2,.7,.2,1) backwards}@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
 @media (prefers-reduced-motion:reduce){.case:hover,.role:hover{transform:none}}
 @media (max-width:860px){.charts{grid-template-columns:minmax(0,1fr)}.cover{height:150px}}
+.case .hook{font-family:var(--f-display);font-size:clamp(21px,2.2vw,26px);line-height:1.3;font-weight:500;color:var(--ink);letter-spacing:-.01em;max-width:44ch;text-wrap:balance}
+.case .hook em{font-style:italic;color:var(--accent)}
 .case dl{margin:0;display:grid;gap:14px}
 .case dt{font-style:italic;font-size:16px;color:var(--accent)}
 .case dd{margin:2px 0 0;font-size:17px}
@@ -382,7 +384,8 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       <article class="case wide reveal">
         <img class="cover" src="images/cover-lowtech.webp" alt="Contemporary building with wooden shutters, from the project presentation" width="1200" height="330" loading="lazy">
         <div class="case-head"><h3>Analysing the Desirability of Low-Tech Solutions</h3><span class="status">Client Project</span></div>
-        <p>The brief from Bouygues Construction: <strong>how do we make low-tech more desirable?</strong></p>
+        <p class="hook">Buildings use <em>44%</em> of France’s energy. The low-tech fixes already exist, yet almost nobody asks for them.</p>
+        <p>Bouygues Construction’s challenge: <strong>how do we make low-tech more desirable?</strong></p>
         <p class="takeaway"><span>Key Takeaway</span>The solution that performs best is not always the one people choose. The same idea needs a different message for a contractor than for the people who live in the building.</p>
         <details class="more">
           <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
@@ -406,7 +409,8 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       <article class="case wide reveal">
         <img class="cover" src="images/cover-comtesse.webp" alt="Comtesse du Barry shopfront, from the project presentation" width="1200" height="360" loading="lazy">
         <div class="case-head"><h3>Comtesse du Barry: The “Renaissance Shift”</h3><span class="status">Client Project</span></div>
-        <p>The brief from this heritage French gourmet brand: <strong>how do we reach new customers without losing our loyal base?</strong></p>
+        <p class="hook">A heritage gourmet brand earning <em>a third</em> of its revenue in one season: Christmas.</p>
+        <p>The challenge: <strong>how do we reach new customers all year round without losing our loyal base?</strong></p>
         <details class="more">
           <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
           <div class="split">
@@ -429,6 +433,7 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       <article class="case wide reveal">
         <img class="cover" src="images/cover-av.webp" alt="Aerial view of motorway interchanges, from the project presentation" width="1200" height="420" loading="lazy">
         <div class="case-head"><h3>Autonomous Vehicles: Who Captures the Value?</h3><span class="status">Strategy Research</span></div>
+        <p class="hook">Platform operators could earn <em>40–50%</em> margins on self-driving rides. Carmakers, just 5–10%.</p>
         <p>From the seat of a European carmaker’s CEO, after Uber launched its autonomous mobility platform: <strong>is there still a viable way to capture value from autonomous mobility, and how?</strong></p>
         <p class="takeaway"><span>Key Takeaway</span>Building the best technology does not guarantee the profits. Whoever owns the customer and the data sets the terms, so the order and timing of a carmaker’s moves matter as much as the strategy itself.</p>
         <details class="more">
