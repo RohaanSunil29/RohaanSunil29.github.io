@@ -231,33 +231,23 @@ section[id]{scroll-margin-top:80px}
 .outcome::before{content:"\201C";position:absolute;left:0;top:-10px;font-size:48px;line-height:1;color:var(--accent);font-style:normal}
 .xp-panel details.more ul{margin-top:4px}
 .xp-panel .tags{margin-top:16px}
-.kit2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
-.skill-card,.tools-wrap{background:var(--surface);border-radius:24px;padding:26px;min-width:0}
-.skill-card h3,.tools-wrap h3{font-size:21px;font-weight:600;margin-bottom:12px}
-.proof{list-style:none;margin:0;padding:0;display:grid}
-.proof li{display:flex;justify-content:space-between;gap:12px;flex-wrap:nowrap;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
-.proof li:last-child{border-bottom:0;padding-bottom:0}
-.sk{font-size:17px;min-width:0}
-.proof .chips{flex-shrink:0;flex-wrap:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips a{font-size:13px;font-style:italic;padding:5px 11px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;transition:background .2s,color .2s}
-.chips a:hover{background:var(--accent);color:var(--accent-ink)}
-.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tile{background:var(--bg);border-radius:16px;padding:14px;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;row-gap:5px;align-items:center;transition:transform .2s ease}
-.tile:hover{transform:translateY(-2px)}
-.tile svg{width:26px;height:26px;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;grid-row:1/4;align-self:start}
-.tn{font-size:16px;font-weight:600;line-height:1.25}
-.tn small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
-.lvl{display:inline-flex;gap:4px;grid-column:2}
-.lvl i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.kit2{background:var(--surface);border-radius:24px;padding:24px 26px;display:grid;gap:20px}
+.kgroup{display:grid;gap:10px}
+.kgroup .k{font-size:13px;font-style:italic;color:var(--muted)}
+.bubbles{display:flex;flex-wrap:wrap;gap:8px}
+.bubbles a,.tpill{display:inline-flex;align-items:center;gap:10px;font-size:15px;padding:8px 14px;border-radius:999px;background:var(--bg);color:var(--ink);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,color .2s}
+.bubbles a:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(28,27,24,.07);color:var(--accent)}
+.bubbles a::after{content:"→";font-size:13px;color:var(--accent);opacity:0;margin-left:-6px;transition:opacity .2s,margin .2s}
+.bubbles a:hover::after{opacity:1;margin-left:0}
+.tpill{cursor:default}
+.lvl{display:inline-flex;gap:3px}
+.lvl i{width:7px;height:7px;border-radius:50%;background:var(--line)}
 .lvl i.on{background:var(--accent)}
-.lt{grid-column:2;font-size:12px;font-style:italic;color:var(--muted)}
-.cert-card{margin-top:14px;display:flex;gap:16px;align-items:center;background:var(--bg);border-radius:16px;padding:12px;text-decoration:none;color:var(--ink);border:1px solid transparent;transition:border-color .2s}
-.cert-card:hover{border-color:var(--accent)}
-.cert-card img{width:96px;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(28,27,24,.12);flex-shrink:0}
-.cert-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
-.cert-txt b{font-size:16px;font-weight:600}
-.cert-txt small{font-size:13px;color:var(--muted)}
+.cert-line{display:inline-flex;align-items:center;gap:8px;font-size:15px;color:var(--ink);text-decoration:none;width:max-content;max-width:100%}
+.cert-line .ck{width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:inline-grid;place-items:center;font-size:12px;flex-shrink:0}
+.cert-line small{color:var(--muted);font-size:13px}
+.cert-line:hover b{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.cert-line b{font-weight:500}
 .edu2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .school{position:relative;overflow:hidden;background:var(--surface);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0}
 .yrs{position:absolute;right:-4px;bottom:-24px;font-family:var(--f-display);font-size:104px;font-weight:700;color:var(--ink);opacity:.05;line-height:1;pointer-events:none;white-space:nowrap}
@@ -274,7 +264,7 @@ section[id]{scroll-margin-top:80px}
 .ring small{font-size:10px;color:var(--muted)}
 .edu-chips{position:relative;display:flex;flex-wrap:wrap;gap:8px}
 .edu-chips span{font-size:14px;padding:7px 13px;border-radius:12px;background:var(--bg)}
-@media (max-width:860px){.kit2,.edu2{grid-template-columns:minmax(0,1fr)}.xp-when{text-align:left}.xp{padding:18px}.tiles{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:860px){.edu2{grid-template-columns:minmax(0,1fr)}.xp-when{text-align:left}.xp{padding:18px}}
 .case dl{margin:0;display:grid;gap:14px}
 .case dt{font-style:italic;font-size:16px;color:var(--accent)}
 .case dd{margin:2px 0 0;font-size:17px}
@@ -789,31 +779,31 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
         <h2>Skills &amp; Tools</h2>
       </div>
     </div>
-    <div class="kit2">
-      <div class="skill-card">
-        <h3>Skills</h3>
-        <ul class="proof">
-          <li><span class="sk">Market &amp; Competitor Analysis</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a></span></li>
-          <li><span class="sk">Customer Segmentation</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a></span></li>
-          <li><span class="sk">Brand Strategy</span><span class="chips"><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
-          <li><span class="sk">Go-to-Market Planning</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a></span></li>
-          <li><span class="sk">Positioning &amp; Marketing Mix</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a></span></li>
-          <li><span class="sk">Stakeholder Research</span><span class="chips"><a href="#experience" data-tab="tab-bc">Bouygues Construction</a></span></li>
-        </ul>
-      </div>
-      <div class="tools-wrap">
-        <h3>Tools</h3>
-        <div class="tiles">
-          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg><span class="tn">Microsoft Office<small>Excel, PowerPoint</small></span><span class="lvl" role="img" aria-label="Advanced"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="lt">Advanced</span></div>
-          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg><span class="tn">SQL</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
-          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span class="tn">Power BI</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
-          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-8M15 8h5v5"/></svg><span class="tn">Google Analytics</span><span class="lvl" role="img" aria-label="Working knowledge"><i class="on"></i><i></i><i></i></span><span class="lt">Working Knowledge</span></div>
-          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg><span class="tn">Claude Code</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
+    <div class="kit2 skill-card">
+      <div class="kgroup">
+        <span class="k">Skills</span>
+        <div class="bubbles">
+          <a href="#experience" data-tab="tab-sg" title="Saint-Gobain">Market &amp; Competitor Analysis</a>
+          <a href="#experience" data-tab="tab-st" title="Stellantis">Customer Segmentation</a>
+          <a href="#work" data-open="cs-comtesse" title="Comtesse du Barry">Brand Strategy</a>
+          <a href="#experience" data-tab="tab-sg" title="Saint-Gobain">Go-to-Market Planning</a>
+          <a href="#experience" data-tab="tab-st" title="Stellantis">Positioning &amp; Marketing Mix</a>
+          <a href="#experience" data-tab="tab-bc" title="Bouygues Construction">Stakeholder Research</a>
         </div>
-        <a class="cert-card" href="certificates/hubspot-digital-marketing.png" target="_blank" rel="noopener">
-          <img src="certificates/hubspot-digital-marketing.png" alt="" width="1140" height="880" loading="lazy">
-          <span class="cert-txt"><span class="label">Certification</span><b>HubSpot Academy · Digital Marketing</b><small>Valid Sep 2026 – Oct 2028 · View Certificate ↗</small></span>
-        </a>
+      </div>
+      <div class="kgroup">
+        <span class="k">Tools</span>
+        <div class="bubbles">
+          <span class="tpill" title="Advanced">Excel &amp; PowerPoint<span class="lvl" role="img" aria-label="Advanced"><i class="on"></i><i class="on"></i><i class="on"></i></span></span>
+          <span class="tpill" title="Intermediate">SQL<span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span></span>
+          <span class="tpill" title="Intermediate">Power BI<span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span></span>
+          <span class="tpill" title="Working Knowledge">Google Analytics<span class="lvl" role="img" aria-label="Working knowledge"><i class="on"></i><i></i><i></i></span></span>
+          <span class="tpill" title="Intermediate">Claude Code<span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span></span>
+        </div>
+      </div>
+      <div class="kgroup">
+        <span class="k">Certification</span>
+        <a class="cert-line" href="certificates/hubspot-digital-marketing.png" target="_blank" rel="noopener"><span class="ck" aria-hidden="true">✓</span><b>HubSpot Academy · Digital Marketing</b><small>2026 – 2028 ↗</small></a>
       </div>
     </div>
   </section>
