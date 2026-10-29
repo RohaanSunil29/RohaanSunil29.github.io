@@ -173,7 +173,7 @@ details.more[open] summary{margin-bottom:20px}
 .flip.flipped .flip-inner{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--surface);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:14px;overflow:auto;box-sizing:border-box}
 .face.back{transform:rotateY(180deg);padding:28px 24px}
-.face .cover{height:170px;transition:transform .5s ease}
+.face .cover{height:170px;background:var(--bg);transition:transform .5s ease}
 .face.front{overflow:hidden}
 .flip:hover .face.front .cover{transform:scale(1.03)}
 .face h3{font-size:clamp(21px,1.9vw,25px);font-weight:600;line-height:1.15}
@@ -237,9 +237,10 @@ section[id]{scroll-margin-top:80px}
 .skill-card,.tools-wrap{background:var(--surface);border-radius:24px;padding:26px;min-width:0}
 .skill-card h3,.tools-wrap h3{font-size:21px;font-weight:600;margin-bottom:12px}
 .proof{list-style:none;margin:0;padding:0;display:grid}
-.proof li{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.proof li{display:flex;justify-content:space-between;gap:12px;flex-wrap:nowrap;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
 .proof li:last-child{border-bottom:0;padding-bottom:0}
-.sk{font-size:17px}
+.sk{font-size:17px;min-width:0}
+.proof .chips{flex-shrink:0;flex-wrap:nowrap}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips a{font-size:13px;font-style:italic;padding:5px 11px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;transition:background .2s,color .2s}
 .chips a:hover{background:var(--accent);color:var(--accent-ink)}
@@ -436,7 +437,6 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <div class="stat"><b><span class="count" data-to="400" data-suffix="+">400+</span></b><span>products benchmarked to reveal portfolio gaps</span></div>
           <div class="stat"><b><span class="count" data-to="20" data-suffix="+">20+</span></b><span>stakeholders trained across 5 countries</span></div>
         </div>
-        <p class="outcome">Country ID cards built from this work are now used by 5 countries.</p>
         <details class="more">
           <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
           <ul class="points">
@@ -458,11 +458,10 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <p class="xp-when">Jan 2024 – Jul 2024<br>Poissy, France</p>
         </div>
         <div class="stats">
-          <div class="stat"><b><span class="count" data-to="20">20</span></b><span>KPIs in the Brand Health Dashboard</span></div>
+          <div class="stat"><b><span class="count" data-to="20">20</span></b><span>KPIs built into the Brand Health Dashboard</span></div>
           <div class="stat"><b><span class="count" data-to="6">6</span></b><span>countries tracked, from awareness to loyalty</span></div>
           <div class="stat"><b><span class="count" data-to="6">6</span></b><span>customer profiles in a segmentation study</span></div>
         </div>
-        <p class="outcome">Helped shape a bundle pricing strategy piloted by Citroën.</p>
         <details class="more">
           <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
           <ul class="points">
@@ -485,7 +484,6 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <div class="stat"><b><span class="count" data-to="100" data-suffix="+">100+</span></b><span>survey responses analysed</span></div>
           <div class="stat"><b><span class="count" data-to="5">5</span></b><span>stakeholder groups mapped</span></div>
         </div>
-        <p class="outcome">Ranked top 4 of 10 projects when defended before industry experts.</p>
         <details class="more">
           <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
           <ul class="points">
@@ -507,7 +505,6 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <div class="stat"><b><span class="count" data-to="15">15</span></b><span>new consultants recruited for the chapter</span></div>
           <div class="stat"><b><span class="count" data-to="3">3</span></b><span>verticals run: marketing, consulting and recruitment</span></div>
         </div>
-        <p class="outcome">Previously Consultant and Branch Head of the 180DC chapter at NITK.</p>
         <details class="more">
           <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
           <ul class="points">
@@ -698,10 +695,37 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       </div>
     </div>
 
-    <div class="cases">
-      <article class="case wide">
-        <div class="kind"><span class="label">Claude · Skill</span><span class="status">In Use</span></div>
-        <h3>Competitor Overview</h3>
+    <div class="flips">
+      <article class="flip" aria-label="Competitor Overview">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-ai.webp" alt="Bar chart from an example competitive brief" width="1000" height="600" loading="lazy">
+            <span class="status">Claude Skill</span>
+            <h3>Competitor Overview</h3>
+            <p class="hook">One request in, a <em>sourced</em> competitive brief out: rivals, pricing, positioning and what to do next.</p>
+            <button class="flip-btn" type="button" data-flip>See What It Does <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">Competitor Overview</p>
+            <ul class="points">
+              <li>Maps <strong>who the competitors are</strong> and compares <strong>pricing and features</strong>.</li>
+              <li>Shows how each brand is <strong>positioned</strong>, with a <strong>SWOT</strong>.</li>
+              <li>Ends with <strong>clear recommendations</strong> for product, sales or leadership.</li>
+            </ul>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-ai">See Example Output</button>
+              <a class="btn" href="https://github.com/RohaanSunil29/AI-Projects" target="_blank" rel="noopener">GitHub ↗</a>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <dialog class="cs" id="cs-ai" aria-labelledby="cs-ai-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close">×</button>
+        <div class="case-head"><h3 id="cs-ai-t">Competitor Overview</h3><span class="status">Claude Skill</span></div>
         <ul class="points">
           <li>Turns a single request into a <strong>sourced competitive brief</strong>, with every figure linked to where it came from.</li>
           <li>Maps <strong>who the competitors are</strong> and compares them on <strong>pricing and features</strong>.</li>
@@ -758,8 +782,8 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <p class="note">Sources: manufacturer price lists and French motoring press (list prices before aids, WLTP range); AAA Data via Beev (registrations).</p>
         </div>
         <div class="cta" style="margin-top:4px"><a class="btn" href="https://github.com/RohaanSunil29/AI-Projects" target="_blank" rel="noopener">View on GitHub ↗</a></div>
-      </article>
-    </div>
+      </div>
+    </dialog>
   </section>
 
   <section id="toolkit">
@@ -770,14 +794,14 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
     </div>
     <div class="kit2">
       <div class="skill-card">
-        <h3>Skills, and Where I Used Them</h3>
+        <h3>Skills</h3>
         <ul class="proof">
-          <li><span class="sk">Market &amp; Competitor Analysis</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a><a href="#ai">Competitor Overview</a></span></li>
-          <li><span class="sk">Customer Segmentation</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
-          <li><span class="sk">Brand Strategy</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
-          <li><span class="sk">Go-to-Market Planning</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a><a href="#work" data-open="cs-av">Autonomous Vehicles</a></span></li>
+          <li><span class="sk">Market &amp; Competitor Analysis</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a></span></li>
+          <li><span class="sk">Customer Segmentation</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a></span></li>
+          <li><span class="sk">Brand Strategy</span><span class="chips"><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
+          <li><span class="sk">Go-to-Market Planning</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a></span></li>
           <li><span class="sk">Positioning &amp; Marketing Mix</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a></span></li>
-          <li><span class="sk">Stakeholder Research</span><span class="chips"><a href="#experience" data-tab="tab-bc">Bouygues Construction</a><a href="#work" data-open="cs-lowtech">Low-Tech Study</a></span></li>
+          <li><span class="sk">Stakeholder Research</span><span class="chips"><a href="#experience" data-tab="tab-bc">Bouygues Construction</a></span></li>
         </ul>
       </div>
       <div class="tools-wrap">
@@ -803,7 +827,6 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
     </div>
     <div class="edu2">
       <article class="school">
-        <span class="yrs" aria-hidden="true">2023–26</span>
         <div class="school-top">
           <div>
             <h3>ESSEC Business School</h3>
@@ -817,7 +840,6 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
         <div class="edu-chips"><span>Grande École - Master in Management</span><span>Global Circular Economy Chair</span><span>Operations Director, 180 Degrees Consulting</span></div>
       </article>
       <article class="school">
-        <span class="yrs" aria-hidden="true">2019–23</span>
         <div class="school-top">
           <div>
             <h3>National Institute of Technology Karnataka</h3>
