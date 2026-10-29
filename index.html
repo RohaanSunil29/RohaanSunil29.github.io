@@ -210,6 +210,72 @@ section[id]{scroll-margin-top:80px}
 .chart.armed .pts circle{opacity:0}
 @media (prefers-reduced-motion:reduce){.flip-inner,.chart .bars-svg rect,.chart .vals text,.face .cover{transition:none}}
 @media (max-width:980px){.flips{grid-template-columns:minmax(0,1fr)}.flip{height:560px}}
+.xp{background:var(--surface);border-radius:26px;padding:24px}
+.xp-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.xp-tab{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 16px;border-radius:14px;border:1px solid transparent;background:transparent;cursor:pointer;font-family:var(--f-body);font-size:16px;color:var(--muted);transition:background .2s,border-color .2s,color .2s}
+.xp-tab img{height:24px;width:auto;max-width:90px;object-fit:contain;border-radius:4px;filter:grayscale(1);opacity:.55;transition:filter .2s,opacity .2s}
+.xp-tab:hover{color:var(--ink)}
+.xp-tab:hover img,.xp-tab[aria-selected="true"] img{filter:none;opacity:1}
+.xp-tab[aria-selected="true"]{background:var(--bg);border-color:var(--line);color:var(--ink);font-weight:600;box-shadow:0 4px 14px rgba(28,27,24,.06)}
+.xp-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.xp-mono{font-weight:700;font-size:15px;color:var(--accent);letter-spacing:-.02em}
+.xp-panel{animation:xpIn .35s ease both}
+@keyframes xpIn{from{opacity:.3;transform:translateY(6px)}to{opacity:1;transform:none}}
+.xp-head{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:flex-start}
+.xp-head h3{font-size:clamp(22px,2.4vw,28px);font-weight:600}
+.xp-head .team{color:var(--muted);font-style:italic;margin-top:4px;font-size:16px}
+.xp-when{font-style:italic;color:var(--muted);font-size:15px;text-align:right;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:24px 0 20px}
+.stat{background:var(--bg);border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.stat b{font-family:var(--f-display);font-size:clamp(36px,4vw,48px);font-weight:600;color:var(--accent);line-height:1}
+.stat > span{font-size:15px;color:var(--muted);line-height:1.4}
+.outcome{position:relative;font-family:var(--f-display);font-style:italic;font-size:clamp(18px,1.8vw,21px);color:var(--ink);margin:0 0 20px;padding-left:30px}
+.outcome::before{content:"\201C";position:absolute;left:0;top:-10px;font-size:48px;line-height:1;color:var(--accent);font-style:normal}
+.xp-panel details.more ul{margin-top:4px}
+.xp-panel .tags{margin-top:16px}
+.kit2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
+.skill-card,.tools-wrap{background:var(--surface);border-radius:24px;padding:26px;min-width:0}
+.skill-card h3,.tools-wrap h3{font-size:21px;font-weight:600;margin-bottom:12px}
+.proof{list-style:none;margin:0;padding:0;display:grid}
+.proof li{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.proof li:last-child{border-bottom:0;padding-bottom:0}
+.sk{font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips a{font-size:13px;font-style:italic;padding:5px 11px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;transition:background .2s,color .2s}
+.chips a:hover{background:var(--accent);color:var(--accent-ink)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile{background:var(--bg);border-radius:16px;padding:14px;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;row-gap:5px;align-items:center;transition:transform .2s ease}
+.tile:hover{transform:translateY(-2px)}
+.tile svg{width:26px;height:26px;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;grid-row:1/4;align-self:start}
+.tn{font-size:16px;font-weight:600;line-height:1.25}
+.tn small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.lvl{display:inline-flex;gap:4px;grid-column:2}
+.lvl i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.lvl i.on{background:var(--accent)}
+.lt{grid-column:2;font-size:12px;font-style:italic;color:var(--muted)}
+.cert-card{margin-top:14px;display:flex;gap:16px;align-items:center;background:var(--bg);border-radius:16px;padding:12px;text-decoration:none;color:var(--ink);border:1px solid transparent;transition:border-color .2s}
+.cert-card:hover{border-color:var(--accent)}
+.cert-card img{width:96px;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(28,27,24,.12);flex-shrink:0}
+.cert-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cert-txt b{font-size:16px;font-weight:600}
+.cert-txt small{font-size:13px;color:var(--muted)}
+.edu2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.school{position:relative;overflow:hidden;background:var(--surface);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.yrs{position:absolute;right:-4px;bottom:-24px;font-family:var(--f-display);font-size:104px;font-weight:700;color:var(--ink);opacity:.05;line-height:1;pointer-events:none;white-space:nowrap}
+.school-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.school h3{font-size:24px;font-weight:600;line-height:1.2}
+.school .loc{font-style:italic;color:var(--muted);margin-top:6px;font-size:16px}
+.ring{position:relative;width:88px;height:88px;flex-shrink:0}
+.ring svg{width:88px;height:88px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:7}
+.ring .trk{stroke:var(--line)}
+.ring .val{stroke:var(--accent);stroke-linecap:round}
+.ring > span{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.1}
+.ring b{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
+.ring small{font-size:10px;color:var(--muted)}
+.edu-chips{position:relative;display:flex;flex-wrap:wrap;gap:8px}
+.edu-chips span{font-size:14px;padding:7px 13px;border-radius:12px;background:var(--bg)}
+@media (max-width:860px){.kit2,.edu2{grid-template-columns:minmax(0,1fr)}.xp-when{text-align:left}.xp{padding:18px}.tiles{grid-template-columns:minmax(0,1fr)}}
 .case dl{margin:0;display:grid;gap:14px}
 .case dt{font-style:italic;font-size:16px;color:var(--accent)}
 .case dd{margin:2px 0 0;font-size:17px}
@@ -352,66 +418,104 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       </div>
     </div>
 
-    <div class="roles">
-      <article class="role">
-        <div class="when"><img class="co-logo" src="images/logo-saint-gobain.png" alt="Saint-Gobain logo" height="28" loading="lazy"><span class="co">Saint-Gobain</span>Aug 2024 – Aug 2026<br>La Défense, France</div>
-        <div>
-          <h3>Assistant International Market Manager</h3>
-          <p class="team">Construction Chemicals, Concrete Works</p>
-          <ul>
-            <li>Analysed concrete works <strong>markets and competitors across <span class="count" data-to="25" data-suffix="+">25+</span> countries</strong> to shape <strong>Go-to-Market and product strategies</strong>.</li>
-            <li>Built a <strong>product matrix of <span class="count" data-to="400" data-suffix="+">400+</span> products</strong> across 50 categories and 4 brands, benchmarked against competitors to reveal <strong>portfolio gaps</strong>.</li>
+    <div class="xp">
+      <div class="xp-tabs" role="tablist" aria-label="Roles">
+        <button class="xp-tab" role="tab" id="tab-sg" aria-controls="panel-sg" aria-selected="true" type="button"><img src="images/logo-saint-gobain.png" alt="" height="24"><span>Saint-Gobain</span></button>
+        <button class="xp-tab" role="tab" id="tab-st" aria-controls="panel-st" aria-selected="false" tabindex="-1" type="button"><img src="images/logo-stellantis.png" alt="" height="24"><span>Stellantis</span></button>
+        <button class="xp-tab" role="tab" id="tab-bc" aria-controls="panel-bc" aria-selected="false" tabindex="-1" type="button"><img src="images/logo-bouygues-construction.png" alt="" height="24"><span>Bouygues Construction</span></button>
+        <button class="xp-tab" role="tab" id="tab-dc" aria-controls="panel-dc" aria-selected="false" tabindex="-1" type="button"><span class="xp-mono" aria-hidden="true">180°</span><span>180 Degrees Consulting</span></button>
+      </div>
+
+      <article class="xp-panel" role="tabpanel" id="panel-sg" aria-labelledby="tab-sg">
+        <div class="xp-head">
+          <div><h3>Assistant International Market Manager</h3><p class="team">Saint-Gobain · Construction Chemicals, Concrete Works</p></div>
+          <p class="xp-when">Aug 2024 – Aug 2026<br>La Défense, France</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="25" data-suffix="+">25+</span></b><span>countries analysed for Go-to-Market and product strategy</span></div>
+          <div class="stat"><b><span class="count" data-to="400" data-suffix="+">400+</span></b><span>products benchmarked to reveal portfolio gaps</span></div>
+          <div class="stat"><b><span class="count" data-to="20" data-suffix="+">20+</span></b><span>stakeholders trained across 5 countries</span></div>
+        </div>
+        <p class="outcome">Country ID cards built from this work are now used by 5 countries.</p>
+        <details class="more">
+          <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
+          <ul class="points">
+            <li>Analysed concrete works <strong>markets and competitors across 25+ countries</strong> to shape <strong>Go-to-Market and product strategies</strong>.</li>
+            <li>Built a <strong>product matrix of 400+ products</strong> across 50 categories and 4 brands, benchmarked against competitors to reveal <strong>portfolio gaps</strong>.</li>
             <li>Created <strong>country ID cards</strong> combining market overview, growth segments, portfolio gaps and actions, <strong>now used by 5 countries</strong>.</li>
-            <li>Built monthly <strong>Performance Dashboards</strong> on sales, margins and products, helping <strong><span class="count" data-to="10" data-suffix="+">10+</span> countries</strong> set data-driven actions.</li>
-            <li>Led research on <strong>cathodic protection</strong> and <strong>structural strengthening</strong>, and <strong>trained <span class="count" data-to="20" data-suffix="+">20+</span> stakeholders across 5 countries</strong>.</li>
+            <li>Built monthly <strong>Performance Dashboards</strong> on sales, margins and products, helping <strong>10+ countries</strong> set data-driven actions.</li>
+            <li>Led research on <strong>cathodic protection</strong> and <strong>structural strengthening</strong>, and <strong>trained 20+ stakeholders across 5 countries</strong>.</li>
             <li>Ran a <strong>competitive benchmark in construction chemicals</strong> with the Sustainability team to guide <strong>product innovation priorities</strong>.</li>
             <li>Sourced <strong>external agencies</strong>, comparing three providers for a <strong>tailored market report</strong> and new internal deck templates.</li>
           </ul>
           <div class="tags"><span class="tag">Market Analysis</span><span class="tag">Competitor Benchmarking</span><span class="tag">Go-to-Market</span><span class="tag">Dashboards</span><span class="tag">Training</span><span class="tag">Vendor Management</span></div>
-        </div>
+        </details>
       </article>
 
-      <article class="role">
-        <div class="when"><img class="co-logo" src="images/logo-stellantis.png" alt="Stellantis logo" height="28" loading="lazy"><span class="co">Stellantis</span>Jan 2024 – Jul 2024<br>Poissy, France</div>
-        <div>
-          <h3>Consumer &amp; Market Insights Assistant</h3>
-          <p class="team">Brand Portfolio Team</p>
-          <ul>
-            <li>Led a <strong>Brand Health Dashboard</strong> tracking <strong><span class="count" data-to="20">20</span> KPIs across 6 countries</strong>, from awareness through consideration to loyalty.</li>
+      <article class="xp-panel" role="tabpanel" id="panel-st" aria-labelledby="tab-st" hidden>
+        <div class="xp-head">
+          <div><h3>Consumer &amp; Market Insights Assistant</h3><p class="team">Stellantis · Brand Portfolio Team</p></div>
+          <p class="xp-when">Jan 2024 – Jul 2024<br>Poissy, France</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="20">20</span></b><span>KPIs in the Brand Health Dashboard</span></div>
+          <div class="stat"><b><span class="count" data-to="6">6</span></b><span>countries tracked, from awareness to loyalty</span></div>
+          <div class="stat"><b><span class="count" data-to="6">6</span></b><span>customer profiles in a segmentation study</span></div>
+        </div>
+        <p class="outcome">Helped shape a bundle pricing strategy piloted by Citroën.</p>
+        <details class="more">
+          <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
+          <ul class="points">
+            <li>Led a <strong>Brand Health Dashboard</strong> tracking <strong>20 KPIs across 6 countries</strong>, from awareness through consideration to loyalty.</li>
             <li>Worked with the data analytics team on a <strong>customer segmentation study</strong> (6 profiles) to understand why customers <strong>switched to competing brands</strong>.</li>
             <li>Partnered with <strong>Product and CRM teams</strong> on marketing mix and targeting, including a <strong>bundle pricing strategy piloted by Citroën</strong>.</li>
             <li>Ran <strong>Consumer Insights research</strong> across several brands to sharpen their <strong>positioning</strong>.</li>
           </ul>
           <div class="tags"><span class="tag">Brand Tracking</span><span class="tag">Segmentation</span><span class="tag">Pricing</span><span class="tag">CRM</span><span class="tag">Positioning</span></div>
-        </div>
+        </details>
       </article>
 
-      <article class="role">
-        <div class="when"><img class="co-logo" src="images/logo-bouygues-construction.png" alt="Bouygues Construction logo" height="28" loading="lazy"><span class="co">Bouygues Construction</span>Jan 2025 – Jun 2025<br>Cergy, France</div>
-        <div>
-          <h3>Low-Tech Desirability Study</h3>
-          <p class="team">Sustainability and Circular Construction</p>
-          <ul>
+      <article class="xp-panel" role="tabpanel" id="panel-bc" aria-labelledby="tab-bc" hidden>
+        <div class="xp-head">
+          <div><h3>Low-Tech Desirability Study</h3><p class="team">Bouygues Construction · Sustainability and Circular Construction</p></div>
+          <p class="xp-when">Jan 2025 – Jun 2025<br>Cergy, France</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="20" data-suffix="+">20+</span></b><span>in-depth stakeholder interviews</span></div>
+          <div class="stat"><b><span class="count" data-to="100" data-suffix="+">100+</span></b><span>survey responses analysed</span></div>
+          <div class="stat"><b><span class="count" data-to="5">5</span></b><span>stakeholder groups mapped</span></div>
+        </div>
+        <p class="outcome">Ranked top 4 of 10 projects when defended before industry experts.</p>
+        <details class="more">
+          <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
+          <ul class="points">
             <li>Researched how to make <strong>low-tech building solutions</strong> more desirable to the people who decide whether they get built.</li>
             <li>Mapped <strong>five stakeholder groups</strong>, from project owners to end users, and ran <strong>expert interviews</strong> and a <strong>questionnaire</strong> to understand their priorities and barriers.</li>
             <li>Scored five solutions on <strong>performance against stakeholder priorities</strong>, revealing a gap between the best performers and the solutions stakeholders preferred.</li>
             <li>Built <strong>stakeholder-specific engagement strategies</strong> and a <strong>reusable stakeholder database</strong> for the client.</li>
           </ul>
           <div class="tags"><span class="tag">Stakeholder Research</span><span class="tag">Expert Interviews</span><span class="tag">Survey Design</span><span class="tag">Circular Economy</span></div>
-        </div>
+        </details>
       </article>
 
-      <article class="role">
-        <div class="when"><span class="co">180 Degrees Consulting</span>Aug 2023 – Aug 2024<br>Cergy, France</div>
-        <div>
-          <h3>Operations &amp; Recruitment Director</h3>
-          <p class="team">Student Consultancy for Non-Profits and Social Enterprises</p>
-          <ul>
-            <li>Led <strong>recruitment</strong> for the chapter, bringing in <strong>around <span class="count" data-to="15">15</span> new consultants</strong>.</li>
-            <li>Managed <strong>operations</strong> across project teams.</li>
+      <article class="xp-panel" role="tabpanel" id="panel-dc" aria-labelledby="tab-dc" hidden>
+        <div class="xp-head">
+          <div><h3>Operations &amp; Recruitment Director</h3><p class="team">180 Degrees Consulting · Student Consultancy for Non-Profits and Social Enterprises</p></div>
+          <p class="xp-when">Aug 2023 – Aug 2024<br>Cergy, France</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="15">15</span></b><span>new consultants recruited for the chapter</span></div>
+          <div class="stat"><b><span class="count" data-to="3">3</span></b><span>verticals run: marketing, consulting and recruitment</span></div>
+        </div>
+        <p class="outcome">Previously Consultant and Branch Head of the 180DC chapter at NITK.</p>
+        <details class="more">
+          <summary><span class="when-closed">See All Responsibilities</span><span class="when-open">Hide Responsibilities</span></summary>
+          <ul class="points">
+            <li>Led <strong>recruitment</strong> for the chapter, bringing in <strong>around 15 new consultants</strong>.</li>
+            <li>Managed <strong>operations</strong> across marketing, consulting and recruitment, and helped shape the chapter’s <strong>strategic plan</strong> with the board.</li>
             <li>Previously <strong>Consultant and Branch Head</strong> of the 180DC chapter at NITK.</li>
           </ul>
-        </div>
+        </details>
       </article>
     </div>
   </section>
@@ -664,30 +768,32 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
         <h2>Skills &amp; Tools</h2>
       </div>
     </div>
-    <div class="kit">
-      <div>
-        <h3>Skills</h3>
-        <ul>
-          <li>Market &amp; Competitor Analysis</li>
-          <li>Customer Segmentation</li>
-          <li>Brand Strategy</li>
-          <li>Go-to-Market Planning</li>
-          <li>Positioning &amp; Marketing Mix</li>
-          <li>Stakeholder Research</li>
+    <div class="kit2">
+      <div class="skill-card">
+        <h3>Skills, and Where I Used Them</h3>
+        <ul class="proof">
+          <li><span class="sk">Market &amp; Competitor Analysis</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a><a href="#ai">Competitor Overview</a></span></li>
+          <li><span class="sk">Customer Segmentation</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
+          <li><span class="sk">Brand Strategy</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a><a href="#work" data-open="cs-comtesse">Comtesse du Barry</a></span></li>
+          <li><span class="sk">Go-to-Market Planning</span><span class="chips"><a href="#experience" data-tab="tab-sg">Saint-Gobain</a><a href="#work" data-open="cs-av">Autonomous Vehicles</a></span></li>
+          <li><span class="sk">Positioning &amp; Marketing Mix</span><span class="chips"><a href="#experience" data-tab="tab-st">Stellantis</a></span></li>
+          <li><span class="sk">Stakeholder Research</span><span class="chips"><a href="#experience" data-tab="tab-bc">Bouygues Construction</a><a href="#work" data-open="cs-lowtech">Low-Tech Study</a></span></li>
         </ul>
       </div>
-      <div>
+      <div class="tools-wrap">
         <h3>Tools</h3>
-        <ul>
-          <li>Microsoft Office Suite (Excel, PowerPoint) <span>advanced</span></li>
-          <li>SQL <span>intermediate</span></li>
-          <li>Power BI <span>intermediate</span></li>
-          <li>Google Analytics <span>working knowledge</span></li>
-          <li>Claude Code <span>intermediate</span></li>
-          <li><a class="cert" href="certificates/hubspot-digital-marketing.png" target="_blank" rel="noopener">HubSpot Digital Marketing</a> <span>certified ↗</span></li>
-        </ul>
+        <div class="tiles">
+          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14h18M9 4v16"/></svg><span class="tn">Microsoft Office<small>Excel, PowerPoint</small></span><span class="lvl" role="img" aria-label="Advanced"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="lt">Advanced</span></div>
+          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg><span class="tn">SQL</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
+          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span class="tn">Power BI</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
+          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-8M15 8h5v5"/></svg><span class="tn">Google Analytics</span><span class="lvl" role="img" aria-label="Working knowledge"><i class="on"></i><i></i><i></i></span><span class="lt">Working Knowledge</span></div>
+          <div class="tile"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/></svg><span class="tn">Claude Code</span><span class="lvl" role="img" aria-label="Intermediate"><i class="on"></i><i class="on"></i><i></i></span><span class="lt">Intermediate</span></div>
+        </div>
+        <a class="cert-card" href="certificates/hubspot-digital-marketing.png" target="_blank" rel="noopener">
+          <img src="certificates/hubspot-digital-marketing.png" alt="" width="1140" height="880" loading="lazy">
+          <span class="cert-txt"><span class="label">Certification</span><b>HubSpot Academy · Digital Marketing</b><small>Valid Sep 2026 – Oct 2028 · View Certificate ↗</small></span>
+        </a>
       </div>
-      
     </div>
   </section>
 
@@ -695,23 +801,34 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
     <div class="sec-head">
       <div><h2>Education</h2></div>
     </div>
-    <div class="edu">
-      <article>
-        <div class="edu-head"><h3>ESSEC Business School</h3><p class="loc">France · 2023 – 2026</p></div>
-        <ul>
-          <li>Grande École - Master in Management</li>
-          <li>Global Circular Economy Chair</li>
-          <li>Operations Director, 180 Degrees Consulting</li>
-        </ul>
-        <span class="grade">GPA 16.03 / 20</span>
+    <div class="edu2">
+      <article class="school">
+        <span class="yrs" aria-hidden="true">2023–26</span>
+        <div class="school-top">
+          <div>
+            <h3>ESSEC Business School</h3>
+            <p class="loc">France · 2023 – 2026</p>
+          </div>
+          <div class="ring" role="img" aria-label="GPA 16.03 out of 20">
+            <svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="34"/><circle class="val" cx="40" cy="40" r="34" style="stroke-dasharray:213.6;stroke-dashoffset:42.4"/></svg>
+            <span><b>16.03</b><small>/ 20 GPA</small></span>
+          </div>
+        </div>
+        <div class="edu-chips"><span>Grande École - Master in Management</span><span>Global Circular Economy Chair</span><span>Operations Director, 180 Degrees Consulting</span></div>
       </article>
-      <article>
-        <div class="edu-head"><h3>National Institute of Technology Karnataka</h3><p class="loc">India · 2019 – 2023</p></div>
-        <ul>
-          <li>Chemical Engineering</li>
-          <li>Consultant and Branch Head, 180 Degrees Consulting</li>
-        </ul>
-        <span class="grade">CGPA 8.36 / 10</span>
+      <article class="school">
+        <span class="yrs" aria-hidden="true">2019–23</span>
+        <div class="school-top">
+          <div>
+            <h3>National Institute of Technology Karnataka</h3>
+            <p class="loc">India · 2019 – 2023</p>
+          </div>
+          <div class="ring" role="img" aria-label="CGPA 8.36 out of 10">
+            <svg viewBox="0 0 80 80" aria-hidden="true"><circle class="trk" cx="40" cy="40" r="34"/><circle class="val" cx="40" cy="40" r="34" style="stroke-dasharray:213.6;stroke-dashoffset:35.0"/></svg>
+            <span><b>8.36</b><small>/ 10 CGPA</small></span>
+          </div>
+        </div>
+        <div class="edu-chips"><span>B.Tech, Chemical Engineering</span><span>Consultant and Branch Head, 180 Degrees Consulting</span></div>
       </article>
     </div>
   </section>
@@ -749,7 +866,7 @@ document.querySelectorAll('.copy').forEach(function(b){
 (function(){
   if(!('IntersectionObserver' in window)) return;
   try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.role,.flip,.case:not(.cs-body),.kit > div,.edu article'));
+  var els=[].slice.call(document.querySelectorAll('.xp,.flip,.case:not(.cs-body),.skill-card,.tools-wrap,.school'));
   var vh=window.innerHeight||800;
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(e){ if(e.getBoundingClientRect().top>vh){ e.classList.add('pre'); io.observe(e); } });
@@ -799,6 +916,26 @@ document.querySelectorAll('.copy').forEach(function(b){
   setTimeout(function(){charts.forEach(function(c){c.classList.remove('armed');});},10000);
 })();
 </script>
+<script>
+(function(){
+  function countUp(el){var to=+el.getAttribute('data-to'),suf=el.getAttribute('data-suffix')||'',t0=null;function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1000),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+  var reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  var tabs=[].slice.call(document.querySelectorAll('.xp-tab'));
+  function select(tab,focus){
+    tabs.forEach(function(t){var on=t===tab;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;var p=document.getElementById(t.getAttribute('aria-controls'));if(p)p.hidden=!on;});
+    if(focus)tab.focus();
+    var panel=document.getElementById(tab.getAttribute('aria-controls'));
+    if(panel&&!reduce)panel.querySelectorAll('.stats .count').forEach(countUp);
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t,false);});
+    t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=tabs[(i+1)%tabs.length];else if(k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];else if(k==='Home')n=tabs[0];else if(k==='End')n=tabs[tabs.length-1];if(n){e.preventDefault();select(n,true);}});
+  });
+  document.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(){var t=document.getElementById(a.getAttribute('data-tab'));if(t)select(t,false);});});
+  document.querySelectorAll('a[data-open]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+})();
+</script>
+
 
 
 
