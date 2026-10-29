@@ -47,7 +47,7 @@ p{margin:0}
 .label{font-style:italic;font-size:16px;color:var(--muted)}
 
 /* nav */
-nav{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding-block:24px}
+nav{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding-block:16px}
 nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;flex-wrap:wrap;justify-content:center}
 nav a{color:var(--muted);text-decoration:none;font-size:16px;font-style:italic}
 nav a:hover{color:var(--accent)}
@@ -167,6 +167,49 @@ details.more[open] summary{margin-bottom:20px}
 @media (max-width:860px){.charts{grid-template-columns:minmax(0,1fr)}.cover{height:150px}}
 .case .hook{font-family:var(--f-display);font-size:clamp(21px,2.2vw,26px);line-height:1.3;font-weight:500;color:var(--ink);letter-spacing:-.01em;max-width:44ch;text-wrap:balance}
 .case .hook em{font-style:italic;color:var(--accent)}
+.flips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.flip{perspective:1600px;height:540px;min-width:0}
+.flip-inner{position:relative;height:100%;transition:transform .75s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--surface);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:14px;overflow:auto;box-sizing:border-box}
+.face.back{transform:rotateY(180deg);padding:28px 24px}
+.face .cover{height:170px;transition:transform .5s ease}
+.face.front{overflow:hidden}
+.flip:hover .face.front .cover{transform:scale(1.03)}
+.face h3{font-size:clamp(21px,1.9vw,25px);font-weight:600;line-height:1.15}
+.face .status{align-self:flex-start}
+.face p{color:var(--muted);font-size:16px}
+.face strong{color:var(--ink);font-weight:600}
+.face .hook{font-family:var(--f-display);font-size:19px;line-height:1.35;font-weight:500;color:var(--ink)}
+.face .hook em{font-style:italic;color:var(--accent)}
+.face .label{font-size:15px}
+.flip-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font-family:var(--f-body);font-size:15px;font-weight:500;cursor:pointer}
+.flip-btn:hover{border-color:var(--accent);color:var(--accent)}
+.flip-btn.ghost{margin-top:0;background:transparent}
+.face-actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.face-actions .btn{padding:10px 18px;font-size:15px}
+dialog.cs{border:0;padding:0;border-radius:26px;width:min(920px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--surface);color:var(--ink);box-shadow:0 30px 80px rgba(28,27,24,.25);overflow:auto}
+dialog.cs::backdrop{background:rgba(28,27,24,.5)}
+.cs-body{position:relative}
+.cs-body:hover{transform:none;box-shadow:none}
+.cs-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(28,27,24,.15)}
+.cs-close:hover{background:var(--accent);color:var(--accent-ink)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:box-shadow .3s ease}
+nav.scrolled{box-shadow:0 1px 0 var(--line)}
+nav a.active{color:var(--accent);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+section[id]{scroll-margin-top:80px}
+.count{font-variant-numeric:tabular-nums}
+.chart .bars-svg rect,.chart .vals text{transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .6s ease}
+.chart .bars-svg rect{transform-box:fill-box;transform-origin:left center}
+.chart.armed .bars-svg rect{transform:scaleX(0)}
+.chart.armed .vals text{opacity:0}
+.chart .bars-svg rect:hover{opacity:.6}
+.chart .bars-svg rect.hi-b:hover{opacity:.8}
+.chart .pts circle{transition:r .2s ease}
+.chart .pts circle:hover{r:9}
+.chart.armed .pts circle{opacity:0}
+@media (prefers-reduced-motion:reduce){.flip-inner,.chart .bars-svg rect,.chart .vals text,.face .cover{transition:none}}
+@media (max-width:980px){.flips{grid-template-columns:minmax(0,1fr)}.flip{height:560px}}
 .case dl{margin:0;display:grid;gap:14px}
 .case dt{font-style:italic;font-size:16px;color:var(--accent)}
 .case dd{margin:2px 0 0;font-size:17px}
@@ -316,11 +359,11 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <h3>Assistant International Market Manager</h3>
           <p class="team">Construction Chemicals, Concrete Works</p>
           <ul>
-            <li>Analysed concrete works <strong>markets and competitors across 25+ countries</strong> to shape <strong>Go-to-Market and product strategies</strong>.</li>
-            <li>Built a <strong>product matrix of 400+ products</strong> across 50 categories and 4 brands, benchmarked against competitors to reveal <strong>portfolio gaps</strong>.</li>
+            <li>Analysed concrete works <strong>markets and competitors across <span class="count" data-to="25" data-suffix="+">25+</span> countries</strong> to shape <strong>Go-to-Market and product strategies</strong>.</li>
+            <li>Built a <strong>product matrix of <span class="count" data-to="400" data-suffix="+">400+</span> products</strong> across 50 categories and 4 brands, benchmarked against competitors to reveal <strong>portfolio gaps</strong>.</li>
             <li>Created <strong>country ID cards</strong> combining market overview, growth segments, portfolio gaps and actions, <strong>now used by 5 countries</strong>.</li>
-            <li>Built monthly <strong>Performance Dashboards</strong> on sales, margins and products, helping <strong>10+ countries</strong> set data-driven actions.</li>
-            <li>Led research on <strong>cathodic protection</strong> and <strong>structural strengthening</strong>, and <strong>trained 20+ stakeholders across 5 countries</strong>.</li>
+            <li>Built monthly <strong>Performance Dashboards</strong> on sales, margins and products, helping <strong><span class="count" data-to="10" data-suffix="+">10+</span> countries</strong> set data-driven actions.</li>
+            <li>Led research on <strong>cathodic protection</strong> and <strong>structural strengthening</strong>, and <strong>trained <span class="count" data-to="20" data-suffix="+">20+</span> stakeholders across 5 countries</strong>.</li>
             <li>Ran a <strong>competitive benchmark in construction chemicals</strong> with the Sustainability team to guide <strong>product innovation priorities</strong>.</li>
             <li>Sourced <strong>external agencies</strong>, comparing three providers for a <strong>tailored market report</strong> and new internal deck templates.</li>
           </ul>
@@ -334,7 +377,7 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <h3>Consumer &amp; Market Insights Assistant</h3>
           <p class="team">Brand Portfolio Team</p>
           <ul>
-            <li>Led a <strong>Brand Health Dashboard</strong> tracking <strong>20 KPIs across 6 countries</strong>, from awareness through consideration to loyalty.</li>
+            <li>Led a <strong>Brand Health Dashboard</strong> tracking <strong><span class="count" data-to="20">20</span> KPIs across 6 countries</strong>, from awareness through consideration to loyalty.</li>
             <li>Worked with the data analytics team on a <strong>customer segmentation study</strong> (6 profiles) to understand why customers <strong>switched to competing brands</strong>.</li>
             <li>Partnered with <strong>Product and CRM teams</strong> on marketing mix and targeting, including a <strong>bundle pricing strategy piloted by Citroën</strong>.</li>
             <li>Ran <strong>Consumer Insights research</strong> across several brands to sharpen their <strong>positioning</strong>.</li>
@@ -364,7 +407,7 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
           <h3>Operations &amp; Recruitment Director</h3>
           <p class="team">Student Consultancy for Non-Profits and Social Enterprises</p>
           <ul>
-            <li>Led <strong>recruitment</strong> for the chapter, bringing in <strong>around 15 new consultants</strong>.</li>
+            <li>Led <strong>recruitment</strong> for the chapter, bringing in <strong>around <span class="count" data-to="15">15</span> new consultants</strong>.</li>
             <li>Managed <strong>operations</strong> across project teams.</li>
             <li>Previously <strong>Consultant and Branch Head</strong> of the 180DC chapter at NITK.</li>
           </ul>
@@ -380,87 +423,147 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
       </div>
     </div>
 
-    <div class="cases">
-      <article class="case wide reveal">
-        <img class="cover" src="images/cover-lowtech.webp" alt="Contemporary building with wooden shutters, from the project presentation" width="1200" height="330" loading="lazy">
-        <div class="case-head"><h3>Analysing the Desirability of Low-Tech Solutions</h3><span class="status">Client Project</span></div>
-        <p class="hook">Buildings use <em>44%</em> of France’s energy. The low-tech fixes already exist, yet almost nobody asks for them.</p>
-        <p>Bouygues Construction’s challenge: <strong>how do we make low-tech more desirable?</strong></p>
-        <p class="takeaway"><span>Key Takeaway</span>Behaviour change, not technology, is the real barrier. The solutions already work; people need reasons to choose them.</p>
-        <details class="more">
-          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
-          <div class="split">
-            <div class="stack">
-              <p>Buildings account for 44% of France’s energy use (2023). The August 2023 heatwave and the April 2025 Iberian blackout showed that buildings must rely less on energy and keep people comfortable when systems fail. Low-tech solutions do this with less, yet few in the industry ask for them.</p>
-              <dl>
-                <div><dt>Approach</dt><dd>Stakeholder mapping across five groups (project owners, consultants, designers, main contractors and end users), expert interviews and a questionnaire, then scoring five solutions against each group’s top priorities.</dd></div>
-                <div><dt>Key Findings</dt><dd>Natural ventilation, free cooling and mechanical switches (over sensors) performed best, yet stakeholders preferred bio-sourced insulation and reused materials. Cost came first for almost every group, and behaviour change, not technology, was the biggest barrier.</dd></div>
-                <div><dt>Recommendations</dt><dd>Communicate the benefits of the best performers, and lower cost and compliance hurdles for the solutions people already prefer. Each stakeholder group gets its own engagement plan, such as case studies and site visits for contractors, and workshops for end users.</dd></div>
-              </dl>
-            </div>
-            <div class="panel" aria-label="Also delivered">
-              <p class="label">Also Delivered</p>
-              <p class="note">A stakeholder database and method the client can reuse to test more low-tech solutions.</p>
+    <div class="flips">
+      <article class="flip" aria-label="Analysing the Desirability of Low-Tech Solutions">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-lowtech.webp" alt="Contemporary building with wooden shutters, from the project presentation" width="1200" height="330" loading="lazy">
+            <span class="status">Client Project</span>
+            <h3>Analysing the Desirability of Low-Tech Solutions</h3>
+            <p class="hook">Buildings use <em>44%</em> of France’s energy. The low-tech fixes already exist, yet almost nobody asks for them.</p>
+            <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">Analysing the Desirability of Low-Tech Solutions</p>
+            <p>Bouygues Construction’s challenge: <strong>how do we make low-tech more desirable?</strong></p>
+            <p class="takeaway"><span>Key Takeaway</span>Behaviour change, not technology, is the real barrier. The solutions already work; people need reasons to choose them.</p>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-lowtech">Read Case Study</button>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
             </div>
           </div>
-        </details>
+        </div>
       </article>
 
-      <article class="case wide reveal">
-        <img class="cover" src="images/cover-comtesse.webp" alt="Comtesse du Barry shopfront, from the project presentation" width="1200" height="360" loading="lazy">
-        <div class="case-head"><h3>Comtesse du Barry: The “Renaissance Shift”</h3><span class="status">Client Project</span></div>
-        <p class="hook">A heritage gourmet brand earning <em>a third</em> of its revenue in one season: Christmas.</p>
-        <p>The challenge: <strong>how do we reach new customers all year round without losing our loyal base?</strong></p>
-        <p class="takeaway"><span>Recommendation</span>Reposition the brand for everyday occasions, launch Apéro Kits, build B2B partnerships and roll out the change in phases.</p>
-        <details class="more">
-          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
-          <div class="split">
-            <div class="stack">
-              <dl>
-                <div><dt>Approach</dt><dd>SWOT, competitor insights and new customer segments.</dd></div>
-                <div><dt>Recommendations</dt><dd>A brand repositioning, a new product line (Apéro Kits), B2B partnerships and a phased Go-to-Market roll-out.</dd></div>
-              </dl>
-            </div>
-            <div class="funnel" aria-label="Go-to-market phases, illustrative">
-              <div>Insight <i>segments · competitors</i></div>
-              <div>Reposition <i>brand story</i></div>
-              <div>Product <i>Apéro Kits</i></div>
-              <div>Launch <i>phased GTM</i></div>
+      <article class="flip" aria-label="Comtesse du Barry: The Renaissance Shift">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-comtesse.webp" alt="Comtesse du Barry shopfront, from the project presentation" width="1200" height="360" loading="lazy">
+            <span class="status">Client Project</span>
+            <h3>Comtesse du Barry: The “Renaissance Shift”</h3>
+            <p class="hook">A heritage gourmet brand earning <em>a third</em> of its revenue in one season: Christmas.</p>
+            <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">Comtesse du Barry: The “Renaissance Shift”</p>
+            <p>The challenge: <strong>how do we reach new customers all year round without losing our loyal base?</strong></p>
+            <p class="takeaway"><span>Recommendation</span>Reposition the brand for everyday occasions, launch Apéro Kits, build B2B partnerships and roll out the change in phases.</p>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-comtesse">Read Case Study</button>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
             </div>
           </div>
-        </details>
+        </div>
       </article>
 
-      <article class="case wide reveal">
-        <img class="cover" src="images/cover-av.webp" alt="Aerial view of motorway interchanges, from the project presentation" width="1200" height="420" loading="lazy">
-        <div class="case-head"><h3>Autonomous Vehicles: Who Captures the Value?</h3><span class="status">Strategy Research</span></div>
-        <p class="hook">Platform operators could earn <em>40–50%</em> margins on self-driving rides. Carmakers, just 5–10%.</p>
-        <p>From the seat of a European carmaker’s CEO, after Uber launched its autonomous mobility platform: <strong>is there still a viable way to capture value from autonomous mobility, and how?</strong></p>
-        <p class="takeaway"><span>Key Takeaway</span>Building the best technology does not guarantee the profits. Whoever owns the customer and the data sets the terms, so the order and timing of a carmaker’s moves matter as much as the strategy itself.</p>
-        <details class="more">
-          <summary><span class="when-closed">Read Case Study</span><span class="when-open">Hide Case Study</span></summary>
-          <div class="split">
-            <div class="stack">
-              <p>In February 2026, Uber launched Uber Autonomous Solutions, a platform covering everything above the vehicle: demand, data, fleet operations and insurance.</p>
-              <dl>
-                <div><dt>Approach</dt><dd>Hypothesis-driven, with a MECE issue tree across three questions: is the market accessible, which strategy gives the best risk-adjusted return, and what capabilities must be in place. Backed by interviews with experts at Aptiv and Kia Connect, and research from Goldman Sachs, McKinsey and Deloitte.</dd></div>
-                <div><dt>Key Findings</dt><dd>The bottleneck has moved from technology to commercialisation. Value is shifting to whoever owns the customer and the data. In Europe, the accessible market sits in a handful of dense city corridors, and the window to act is about 18 to 24 months.</dd></div>
-                <div><dt>Recommendations</dt><dd>Three moves, in order. Supply vehicles to Uber now, on non-exclusive terms with data rights, to fund the next step. Within six months, launch the carmaker’s own mobility service in one EU city, licensing the self-driving technology instead of building it. Keep full vertical integration as a five-year option through a minority stake in a technology partner.</dd></div>
-              </dl>
-              <div class="cta" style="margin-top:4px"><a class="btn" href="decks/autonomous-vehicles-strategy.pdf" target="_blank" rel="noopener">View Deck ↗</a></div>
-            </div>
-            <div class="panel" aria-label="Gross margin by layer">
-              <p class="label">Gross Margin by Layer</p>
-              <div class="bars">
-                <div class="bar"><span>Platform Operator</span><div class="track"><i style="width:90%"></i></div><b>40–50%</b></div>
-                <div class="bar"><span>Carmaker Hardware</span><div class="track"><i class="lo" style="width:20%"></i></div><b>5–10%</b></div>
-              </div>
-              <p class="note">Source: Goldman Sachs estimates. This gap is why “just supply the cars” is not enough.</p>
+      <article class="flip" aria-label="Autonomous Vehicles: Who Captures the Value?">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-av.webp" alt="Aerial view of motorway interchanges, from the project presentation" width="1200" height="420" loading="lazy">
+            <span class="status">Strategy Research</span>
+            <h3>Autonomous Vehicles: Who Captures the Value?</h3>
+            <p class="hook">Platform operators could earn <em>40–50%</em> margins on self-driving rides. Carmakers, just 5–10%.</p>
+            <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">Autonomous Vehicles: Who Captures the Value?</p>
+            <p>From the seat of a European carmaker’s CEO, after Uber launched its autonomous mobility platform: <strong>is there still a viable way to capture value, and how?</strong></p>
+            <p class="takeaway"><span>Key Takeaway</span>Building the best technology does not guarantee the profits. Whoever owns the customer and the data sets the terms.</p>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-av">Read Case Study</button>
+              <a class="btn" href="decks/autonomous-vehicles-strategy.pdf" target="_blank" rel="noopener">View Deck ↗</a>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
             </div>
           </div>
-        </details>
+        </div>
       </article>
     </div>
+
+    <dialog class="cs" id="cs-lowtech" aria-labelledby="cs-lowtech-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close case study">×</button>
+        <img class="cover" src="images/cover-lowtech.webp" alt="" width="1200" height="330">
+        <div class="case-head"><h3 id="cs-lowtech-t">Analysing the Desirability of Low-Tech Solutions</h3><span class="status">Client Project</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>Buildings account for 44% of France’s energy use (2023). The August 2023 heatwave and the April 2025 Iberian blackout showed that buildings must rely less on energy and keep people comfortable when systems fail. Low-tech solutions do this with less, yet few in the industry ask for them.</p>
+            <dl>
+              <div><dt>Approach</dt><dd>Stakeholder mapping across five groups (project owners, consultants, designers, main contractors and end users), expert interviews and a questionnaire, then scoring five solutions against each group’s top priorities.</dd></div>
+              <div><dt>Key Findings</dt><dd>Natural ventilation, free cooling and mechanical switches (over sensors) performed best, yet stakeholders preferred bio-sourced insulation and reused materials. Cost came first for almost every group, and behaviour change, not technology, was the biggest barrier.</dd></div>
+              <div><dt>Recommendations</dt><dd>Communicate the benefits of the best performers, and lower cost and compliance hurdles for the solutions people already prefer. Each stakeholder group gets its own engagement plan, such as case studies and site visits for contractors, and workshops for end users.</dd></div>
+            </dl>
+          </div>
+          <div class="panel">
+            <p class="label">Key Takeaway</p>
+            <p class="note">Behaviour change, not technology, is the real barrier. The solutions already work; people need reasons to choose them.</p>
+            <p class="label" style="margin-top:20px">Also Delivered</p>
+            <p class="note">A stakeholder database and method the client can reuse to test more low-tech solutions.</p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="cs" id="cs-comtesse" aria-labelledby="cs-comtesse-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close case study">×</button>
+        <img class="cover" src="images/cover-comtesse.webp" alt="" width="1200" height="360">
+        <div class="case-head"><h3 id="cs-comtesse-t">Comtesse du Barry: The “Renaissance Shift”</h3><span class="status">Client Project</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>The challenge: <strong>how do we reach new customers all year round without losing our loyal base?</strong></p>
+            <dl>
+              <div><dt>Approach</dt><dd>SWOT, competitor insights and new customer segments.</dd></div>
+              <div><dt>Recommendation</dt><dd>A brand repositioning for everyday occasions, a new product line (Apéro Kits), B2B partnerships and a phased Go-to-Market roll-out.</dd></div>
+            </dl>
+          </div>
+          <div class="funnel" aria-label="Go-to-market phases, illustrative">
+            <div>Insight <i>segments · competitors</i></div>
+            <div>Reposition <i>brand story</i></div>
+            <div>Product <i>Apéro Kits</i></div>
+            <div>Launch <i>phased GTM</i></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="cs" id="cs-av" aria-labelledby="cs-av-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close case study">×</button>
+        <img class="cover" src="images/cover-av.webp" alt="" width="1200" height="420">
+        <div class="case-head"><h3 id="cs-av-t">Autonomous Vehicles: Who Captures the Value?</h3><span class="status">Strategy Research</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>In February 2026, Uber launched Uber Autonomous Solutions, a platform covering everything above the vehicle: demand, data, fleet operations and insurance.</p>
+            <dl>
+              <div><dt>Approach</dt><dd>Hypothesis-driven, with a MECE issue tree across three questions: is the market accessible, which strategy gives the best risk-adjusted return, and what capabilities must be in place. Backed by interviews with experts at Aptiv and Kia Connect, and research from Goldman Sachs, McKinsey and Deloitte.</dd></div>
+              <div><dt>Key Findings</dt><dd>The bottleneck has moved from technology to commercialisation. Value is shifting to whoever owns the customer and the data. In Europe, the accessible market sits in a handful of dense city corridors, and the window to act is about 18 to 24 months.</dd></div>
+              <div><dt>Recommendations</dt><dd>Three moves, in order. Supply vehicles to Uber now, on non-exclusive terms with data rights, to fund the next step. Within six months, launch the carmaker’s own mobility service in one EU city, licensing the self-driving technology instead of building it. Keep full vertical integration as a five-year option through a minority stake in a technology partner.</dd></div>
+            </dl>
+            <div class="cta" style="margin-top:4px"><a class="btn" href="decks/autonomous-vehicles-strategy.pdf" target="_blank" rel="noopener">View Deck ↗</a></div>
+          </div>
+          <div class="panel">
+            <p class="label">Gross Margin by Layer</p>
+            <div class="bars">
+              <div class="bar"><span>Platform Operator</span><div class="track"><i style="width:90%"></i></div><b>40–50%</b></div>
+              <div class="bar"><span>Carmaker Hardware</span><div class="track"><i class="lo" style="width:20%"></i></div><b>5–10%</b></div>
+            </div>
+            <p class="note">Source: Goldman Sachs estimates. This gap is why “just supply the cars” is not enough.</p>
+            <p class="label" style="margin-top:20px">Key Takeaway</p>
+            <p class="note">Building the best technology does not guarantee the profits. Whoever owns the customer and the data sets the terms, so the order and timing of a carmaker’s moves matter as much as the strategy itself.</p>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <div class="wip-head" hidden>
       <h3>In Progress</h3>
@@ -515,15 +618,15 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
                   <text x="106" y="330" text-anchor="middle">€18k</text><text x="198" y="330" text-anchor="middle">€20k</text><text x="290" y="330" text-anchor="middle">€22k</text><text x="382" y="330" text-anchor="middle">€24k</text><text x="474" y="330" text-anchor="middle">€26k</text>
                 </g>
                 <g class="pts">
-                  <circle cx="101.4" cy="216.7" r="6"/><text x="111" y="221">Dacia Spring</text>
-                  <circle cx="174.5" cy="192.4" r="6"/><text x="184" y="188">Renault Twingo</text>
-                  <circle cx="427.5" cy="100.9" r="6"/><text x="437" y="114">Renault 5</text>
-                  <circle cx="427.8" cy="69.2" r="6"/><text x="437" y="65">VW ID.Polo</text>
-                  <circle cx="450.5" cy="86" r="6"/><text x="460" y="90">Grande Panda</text>
+                  <circle cx="101.4" cy="216.7" r="6"><title>Dacia Spring: €17,900 · up to 250 km</title></circle><text x="111" y="221">Dacia Spring</text>
+                  <circle cx="174.5" cy="192.4" r="6"><title>Renault Twingo: €19,490 · 263 km</title></circle><text x="184" y="188">Renault Twingo</text>
+                  <circle cx="427.5" cy="100.9" r="6"><title>Renault 5: €24,990 · 312 km</title></circle><text x="437" y="114">Renault 5</text>
+                  <circle cx="427.8" cy="69.2" r="6"><title>VW ID.Polo: €24,995 · 329 km</title></circle><text x="437" y="65">VW ID.Polo</text>
+                  <circle cx="450.5" cy="86" r="6"><title>Grande Panda: €25,490 · 320 km</title></circle><text x="460" y="90">Grande Panda</text>
                 </g>
                 <g class="pts hi">
-                  <circle cx="197.5" cy="285.7" r="7"/><text x="208" y="290">Citroën ë-C3 (30 kWh)</text>
-                  <circle cx="356.7" cy="78.5" r="7"/><text x="346" y="74" text-anchor="end">Citroën ë-C3 (44 kWh)</text>
+                  <circle cx="197.5" cy="285.7" r="7"><title>Citroën ë-C3 (30 kWh): €19,990 · 213 km</title></circle><text x="208" y="290">Citroën ë-C3 (30 kWh)</text>
+                  <circle cx="356.7" cy="78.5" r="7"><title>Citroën ë-C3 (44 kWh): €23,450 · 324 km</title></circle><text x="346" y="74" text-anchor="end">Citroën ë-C3 (44 kWh)</text>
                 </g>
               </svg>
             </figure>
@@ -536,9 +639,9 @@ footer{padding-block:28px 0;font-style:italic;font-size:15px;color:var(--muted);
                   <text x="170" y="219" text-anchor="end">Peugeot e-3008</text><text x="170" y="251" text-anchor="end">Skoda Elroq</text><text x="170" y="283" text-anchor="end">VW ID.4</text><text x="170" y="315" text-anchor="end">Renault Mégane</text>
                 </g>
                 <g class="bars-svg">
-                  <rect x="180" y="12" width="300" height="20" rx="3"/><rect x="180" y="44" width="191.5" height="20" rx="3"/><rect x="180" y="76" width="183" height="20" rx="3"/><rect x="180" y="108" width="120" height="20" rx="3"/><rect x="180" y="140" width="100.4" height="20" rx="3"/>
-                  <rect x="180" y="172" width="98.8" height="20" rx="3" class="hi-b"/>
-                  <rect x="180" y="204" width="60.2" height="20" rx="3"/><rect x="180" y="236" width="53.4" height="20" rx="3"/><rect x="180" y="268" width="51.8" height="20" rx="3"/><rect x="180" y="300" width="46" height="20" rx="3"/>
+                  <rect x="180" y="12" width="300" height="20" rx="3"><title>Tesla Model Y: 8,183 registrations</title></rect><rect x="180" y="44" width="191.5" height="20" rx="3"><title>Renault 5 E-Tech: 5,224 registrations</title></rect><rect x="180" y="76" width="183" height="20" rx="3"><title>Renault Twingo E-Tech: 4,992 registrations</title></rect><rect x="180" y="108" width="120" height="20" rx="3"><title>Peugeot e-208: 3,274 registrations</title></rect><rect x="180" y="140" width="100.4" height="20" rx="3"><title>Renault Scénic E-Tech: 2,738 registrations</title></rect>
+                  <rect x="180" y="172" width="98.8" height="20" rx="3" class="hi-b"><title>Citroën ë-C3: 2,696 registrations</title></rect>
+                  <rect x="180" y="204" width="60.2" height="20" rx="3"><title>Peugeot e-3008: 1,643 registrations</title></rect><rect x="180" y="236" width="53.4" height="20" rx="3"><title>Skoda Elroq: 1,457 registrations</title></rect><rect x="180" y="268" width="51.8" height="20" rx="3"><title>Volkswagen ID.4: 1,414 registrations</title></rect><rect x="180" y="300" width="46" height="20" rx="3"><title>Renault Mégane E-Tech: 1,254 registrations</title></rect>
                 </g>
                 <g class="axis vals">
                   <text x="486" y="27">8,183</text><text x="377.5" y="59">5,224</text><text x="369" y="91">4,992</text><text x="306" y="123">3,274</text><text x="286.4" y="155">2,738</text>
@@ -646,13 +749,57 @@ document.querySelectorAll('.copy').forEach(function(b){
 (function(){
   if(!('IntersectionObserver' in window)) return;
   try{ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
-  var els=[].slice.call(document.querySelectorAll('.role,.case,.kit > div,.edu article'));
+  var els=[].slice.call(document.querySelectorAll('.role,.flip,.case:not(.cs-body),.kit > div,.edu article'));
   var vh=window.innerHeight||800;
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(e){ if(e.getBoundingClientRect().top>vh){ e.classList.add('pre'); io.observe(e); } });
   setTimeout(function(){ els.forEach(function(e){ e.classList.remove('pre'); }); },8000);
 })();
 </script>
+<script>
+(function(){
+  var reduce=false; try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  /* flip cards */
+  document.querySelectorAll('.flip').forEach(function(card){
+    var front=card.querySelector('.face.front'), back=card.querySelector('.face.back');
+    card.querySelectorAll('[data-flip]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var on=!card.classList.contains('flipped');
+        card.classList.toggle('flipped',on);
+        if(on){front.setAttribute('inert','');back.removeAttribute('inert');var f=back.querySelector('button,a');if(f)setTimeout(function(){f.focus({preventScroll:true});},300);}
+        else{back.setAttribute('inert','');front.removeAttribute('inert');var g=front.querySelector('[data-flip]');if(g)setTimeout(function(){g.focus({preventScroll:true});},300);}
+      });
+    });
+  });
+  /* case study pop-ups */
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){var d=document.getElementById(b.getAttribute('data-open'));if(d&&d.showModal){d.showModal();}else if(d){d.setAttribute('open','');}});
+  });
+  document.querySelectorAll('dialog.cs').forEach(function(d){
+    d.querySelector('.cs-close').addEventListener('click',function(){d.close?d.close():d.removeAttribute('open');});
+    d.addEventListener('click',function(e){if(e.target===d){d.close();}});
+  });
+  if(!('IntersectionObserver' in window)) return;
+  /* sticky nav highlight */
+  var nav=document.querySelector('nav'), links={};
+  nav.querySelectorAll('a[href^="#"]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var navObs=new IntersectionObserver(function(es){es.forEach(function(en){var a=links[en.target.id];if(!a)return;if(en.isIntersecting){Object.keys(links).forEach(function(k){links[k].classList.remove('active');});a.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(links).forEach(function(id){var s=document.getElementById(id);if(s)navObs.observe(s);});
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20);},{passive:true});
+  if(reduce) return;
+  var vh=window.innerHeight||800;
+  /* count-up numbers */
+  var counts=[].slice.call(document.querySelectorAll('.count'));
+  var cObs=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;cObs.unobserve(en.target);var el=en.target,to=+el.getAttribute('data-to'),suf=el.getAttribute('data-suffix')||'',t0=null;function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1100),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});},{threshold:.6});
+  counts.forEach(function(c){if(c.getBoundingClientRect().top>vh)cObs.observe(c);});
+  /* charts draw in */
+  var charts=[].slice.call(document.querySelectorAll('.chart'));
+  var chObs=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('armed');chObs.unobserve(en.target);}});},{threshold:.35});
+  charts.forEach(function(c){if(c.getBoundingClientRect().top>vh){c.classList.add('armed');chObs.observe(c);}});
+  setTimeout(function(){charts.forEach(function(c){c.classList.remove('armed');});},10000);
+})();
+</script>
+
 
 
 </body>
