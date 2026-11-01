@@ -713,6 +713,30 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
           </div>
         </div>
       </article>
+      <article class="flip" aria-label="Research Report">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-research.webp" alt="First page of an example research report with numbered citations" width="1000" height="600" loading="lazy">
+            <span class="status">Claude Code Workflow</span>
+            <h3>Research Report</h3>
+            <p class="hook">One topic in, a <em>fully cited</em> research report out, with every claim labelled by how strong its evidence is.</p>
+            <button class="flip-btn" type="button" data-flip>See What It Does <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">Research Report</p>
+            <ul class="points">
+              <li>Asks about <strong>scope and audience</strong> first, then shows a <strong>research plan</strong> for approval.</li>
+              <li>Runs <strong>parallel research agents</strong>, aiming for 15+ sources and favouring primary ones.</li>
+              <li>Delivers a <strong>dated, cited report</strong> with takeaways and next steps.</li>
+            </ul>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-research">See Example Output</button>
+              <a class="btn" href="https://github.com/RohaanSunil29/AI-Projects/tree/main/research-report-workflow" target="_blank" rel="noopener">GitHub ↗</a>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
+            </div>
+          </div>
+        </div>
+      </article>
       <article class="flip" aria-label="GA4 E-Commerce Analytics">
         <div class="flip-inner">
           <div class="face front">
@@ -813,6 +837,29 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
           <p class="note">Sources: manufacturer price lists and French motoring press (list prices before aids, WLTP range); AAA Data via Beev (registrations).</p>
         </div>
         <div class="cta" style="margin-top:4px"><a class="btn" href="https://github.com/RohaanSunil29/AI-Projects" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+      </div>
+    </dialog>
+    <dialog class="cs" id="cs-research" aria-labelledby="cs-research-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close">×</button>
+        <div class="case-head" style="padding-right:52px"><h3 id="cs-research-t">Research Report</h3><span class="status">Claude Code Workflow</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>Type <strong>/research</strong> and a topic in Claude Code, and the workflow handles the rest.</p>
+            <dl>
+              <div><dt>How It Works</dt><dd>Clarify the scope and audience, approve the plan, let parallel agents research in depth, then get a report that is checked so every claim has a citation and every question is answered or marked unanswered.</dd></div>
+              <div><dt>What the Report Holds</dt><dd>A bottom line in 3–5 bullets, one findings section per question, evidence labels (Independent, Survey, Vendor claim, Forecast, Anecdote), a section on where sources disagree, key takeaways, next steps and a numbered source list.</dd></div>
+              <div><dt>Example: State of AI Agents 2026</dt><dd>What individuals and creators use AI agents for, what works, what is overhyped and where it is heading, backed by <strong>99 cited sources</strong>.</dd></div>
+            </dl>
+            <div class="cta" style="margin-top:4px"><a class="btn primary" href="https://github.com/RohaanSunil29/AI-Projects/blob/main/research-report-workflow/output/2026-10-30-state-of-ai-agents-2026.md" target="_blank" rel="noopener">Read the Report ↗</a><a class="btn" href="https://github.com/RohaanSunil29/AI-Projects/tree/main/research-report-workflow" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+          </div>
+          <div class="panel">
+            <p class="label">Key Finding</p>
+            <p class="note">Agents earn their keep on work you can check and undo, such as coding with tests. “Digital employee” claims are the most overhyped.</p>
+            <p class="label" style="margin-top:20px">Evidence Labels</p>
+            <div class="tags" style="margin-top:0"><span class="tag">Independent</span><span class="tag">Survey</span><span class="tag">Vendor claim</span><span class="tag">Forecast</span><span class="tag">Anecdote</span></div>
+          </div>
+        </div>
       </div>
     </dialog>
   </section>
