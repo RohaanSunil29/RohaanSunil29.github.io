@@ -761,20 +761,21 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
           </div>
         </div>
       </article>
-      <article class="flip" aria-label="Personal Health Analytics">
+      <article class="flip" aria-label="Automated Weekly Sleep Report">
         <div class="flip-inner">
           <div class="face front">
-            <img class="cover" src="images/cover-health.webp" alt="Illustrative weekly sleep chart" width="1000" height="600" loading="lazy">
-            <span class="status">In Progress</span>
-            <h3>Personal Health Analytics</h3>
-            <p class="hook">21 months of <em>my own</em> wearable data. What really drives a good night’s sleep?</p>
+            <img class="cover" src="images/cover-health-v2.webp" alt="Weekly sleep report with sleep score, nights of 7 hours or more and REM share" width="1200" height="750" loading="lazy">
+            <span class="status">AI Workflow</span>
+            <h3>Automated Weekly Sleep Report</h3>
+            <p class="hook">Health apps show a score, not what to change. Every Monday, a report built from <em>real</em> sleep data does.</p>
             <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
           </div>
           <div class="face back" inert>
-            <p class="label">Personal Health Analytics</p>
-            <p>128,000+ rows of messy Samsung Health data, cleaned and modelled in SQL to test 11 hypotheses: <strong>what really drives sleep quality, and which assumptions don’t hold up?</strong></p>
-            <div class="takeaway"><span>Tools</span><div class="tags" style="margin-top:8px"><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Claude Code</span></div></div>
+            <p class="label">Automated Weekly Sleep Report</p>
+            <p>Health apps show scores but do not explain what changed: <strong>how can a weekly answer to “what should be done differently?” be built from one’s own data, with no manual work?</strong></p>
+            <div class="takeaway"><span>Key Features</span><ul class="kf"><li>Interactive dashboard with a 26-week picker</li><li>Dark-themed weekly email report</li><li>Scheduled every Monday, fully automated</li></ul></div>
             <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-health">Read Case Study</button>
               <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
             </div>
           </div>
@@ -865,6 +866,31 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
             <div class="tags" style="margin-top:0"><span class="tag">GA4</span><span class="tag">Looker Studio</span><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Claude Code</span></div>
             <p class="label" style="margin-top:20px">Limitations</p>
             <p class="note">The demo property only holds data from August 2025, so there is no earlier holiday to compare with. The data is aggregated, and the checkout figure is an estimate, not a forecast.</p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="cs" id="cs-health" aria-labelledby="cs-health-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close">×</button>
+        <div class="case-head" style="padding-right:52px"><h3 id="cs-health-t">Automated Weekly Sleep Report</h3><span class="status">AI Workflow</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>A system that takes a Samsung Health export and, once a week, produces an interactive dashboard and a dark-themed email report. Both carry plain-language takeaways and recommendations personalised to the data.</p>
+            <dl>
+              <div><dt>Problem</dt><dd>Health apps show scores but do not explain what changed or what to do about it. The aim was a weekly answer to “what should be done differently?”, built only from the data and without manual work each week.</dd></div>
+              <div><dt>What Was Built</dt><dd><ul class="bl"><li><strong>Interactive dashboard:</strong> six key metrics (score, hours asleep, nights of 7 h or more, average bedtime, on-time bedtime and REM share), each against last week and the 12-week average, plus a 26-week picker, night-by-night hours and scores, REM and deep sleep, a trend explorer and a bedtime scatter</li><li><strong>Weekly email:</strong> key numbers, two charts side by side, takeaways, recommendations and a dashboard link. The bars are drawn as table cells, because Gmail drops the usual chart markup</li><li><strong>Automation:</strong> a scheduled Claude task runs every Monday around 08:00. It refreshes the data, rewrites the takeaways, updates the dashboard and sends the email to the owner only</li><li><strong>Safety rule:</strong> if the data is over 7 days old or the week has fewer than 5 nights, a short “new export needed” note replaces the report</li><li><strong>Project rules file:</strong> a <code>CLAUDE.md</code> keeps the data rules, writing style, trusted sources and weekly routine consistent</li></ul></dd></div>
+              <div><dt>Design Decisions</dt><dd><ul class="bl"><li><strong>Meaning, not numbers:</strong> takeaways explain what a change means, for example that REM tracks mental recovery, and say “tends to”, not “causes”</li><li><strong>Personalised advice:</strong> recommendations name specific nights, bedtimes and scores, compare with the personal history and cite the CDC, the AASM or the Sleep Foundation</li><li><strong>Own data only:</strong> every number comes from the export, and outside sources support general advice only</li><li><strong>Fixing what did not render:</strong> the first email charts failed to show in Gmail, so the bars were redrawn in a form Gmail keeps</li></ul></dd></div>
+              <div><dt>Example Output: Week of Oct 5–11, 2026</dt><dd><ul class="bl"><li>Sleep score <strong>72.7</strong>, up 3.1 against a 12-week average of 65.9, with 7 hours or more on every night</li><li>REM bounced back to <strong>16.9%</strong>, and mental recovery rose from 67.0 to 83.7</li><li>Bedtime is the main drag at <strong>01:11</strong> on average, about 2 hours past the 23:00 goal</li><li>Recommendation: aim for bed by midnight, since nights before midnight average a score of <strong>74.4</strong>, against 68.5 at 01:00–02:00</li></ul></dd></div>
+            </dl>
+          </div>
+          <div class="panel">
+            <p class="label">Key Finding</p>
+            <p class="note">Bedtime, not sleep length, is the main drag on the score. The report turns that into one clear action each week.</p>
+            <p class="label" style="margin-top:20px">Tools</p>
+            <div class="tags" style="margin-top:0"><span class="tag">Claude Dashboards</span><span class="tag">Claude Scheduled Tasks</span><span class="tag">Gmail</span><span class="tag">Python</span><span class="tag">HTML Email</span></div>
+            <p class="label" style="margin-top:20px">Skills Shown</p>
+            <ul class="bl" style="margin:4px 0 0;padding-left:20px"><li>End-to-end reporting workflow and automation</li><li>KPIs and insights for a non-technical reader</li><li>Dashboard and email design</li><li>Source-backed AI recommendations</li><li>Separating correlation from causation</li></ul>
           </div>
         </div>
       </div>
