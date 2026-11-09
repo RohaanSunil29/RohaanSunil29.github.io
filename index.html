@@ -136,6 +136,7 @@ section{padding-block:44px}
 .cover{display:block;width:100%;max-width:100%;height:200px;object-fit:cover;border-radius:16px}
 .takeaway{font-size:16px!important;color:var(--ink)!important;background:var(--bg-deep);border-radius:14px;padding:14px 18px}
 .takeaway span{display:block;font-style:italic;font-size:14px;color:var(--muted);margin-bottom:4px}
+dd ul.bl{margin:4px 0 0;padding-left:20px}dd ul.bl li{margin:5px 0}
 .takeaway ul.kf{margin:2px 0 0;padding-left:18px}.takeaway ul.kf li{margin:3px 0;line-height:1.4}
 details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:15px;font-weight:500;width:max-content;max-width:100%}
 details.more summary::-webkit-details-marker{display:none}
@@ -852,8 +853,8 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
             <p>The Google Merchandise Store is a real, live e-commerce site. This analysis covers 1 October 2025 to 30 September 2026, holiday season included, and asks where the store loses buyers and which channels, devices and products deserve more investment.</p>
             <dl>
               <div><dt>Approach</dt><dd>Aggregated GA4 data exported through Looker Studio, cleaned and checked in PostgreSQL with six SQL scripts, then modelled in Power BI with DAX measures across a five-page dashboard and a what-if checkout simulator.</dd></div>
-              <div><dt>Key Findings</dt><dd>Mobile is <strong>63% of users but about 10% of buyers</strong>, and 78% of users never view a product. Of users who begin checkout, 26% complete it on mobile against 56% on desktop. Email and Referral visits are worth over twice the average, while Direct brings 54% of sessions but 48% of revenue. Black Friday to Cyber Monday earned 2.5x a normal day on almost the same traffic. September sessions rose 42% year over year, but revenue rose 0.2%.</dd></div>
-              <div><dt>Recommendations</dt><dd>Fix the mobile journey, from product discovery to checkout: matching desktop checkout completion is worth about 1,470 extra buyers (+11%). Manage the range around best sellers, and invest in Email, Referral and returning visitors rather than raw volume.</dd></div>
+              <div><dt>Key Findings</dt><dd><ul class="bl"><li>Mobile is <strong>63% of users but about 10% of buyers</strong>, and 78% of users never view a product</li><li>Of users who begin checkout, 26% complete it on mobile against 56% on desktop</li><li>Email and Referral visits are worth over twice the average, while Direct brings 54% of sessions but 48% of revenue</li><li>Black Friday to Cyber Monday earned 2.5x a normal day on almost the same traffic</li><li>September sessions rose 42% year over year, but revenue rose 0.2%</li></ul></dd></div>
+              <div><dt>Recommendations</dt><dd><ul class="bl"><li><strong>Fix the mobile journey</strong>, from product discovery to checkout: matching desktop checkout completion is worth about 1,470 extra buyers (+11%)</li><li><strong>Manage the range</strong> around best sellers</li><li><strong>Invest in quality, not volume</strong>: Email, Referral and returning visitors</li></ul></dd></div>
             </dl>
             <div class="cta" style="margin-top:4px"><a class="btn primary" href="https://github.com/RohaanSunil29/Project-Portfolio/tree/main/ga4-ecommerce-analytics" target="_blank" rel="noopener">View on GitHub ↗</a></div>
           </div>
