@@ -376,7 +376,7 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
     <ul>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#work">Projects</a></li>
-      <li><a href="#ai">AI</a></li>
+      <li><a href="#ai">Personal</a></li>
       <li><a href="#toolkit">Skills</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -684,11 +684,33 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
   <section id="ai">
     <div class="sec-head">
       <div>
-        <h2>AI in My Work</h2>
+        <h2>Personal Project Portfolio</h2>
       </div>
     </div>
 
     <div class="flips">
+      <article class="flip" aria-label="GA4 E-Commerce Analytics">
+        <div class="flip-inner">
+          <div class="face front">
+            <img class="cover" src="images/cover-ga4-v5.webp" alt="Power BI funnel: 78% of visitors never view a product" width="1200" height="750" loading="lazy">
+            <span class="status">Data Project</span>
+            <h3>GA4 E-Commerce Analytics</h3>
+            <p class="hook">Sessions grew <em>42%</em> year over year, yet revenue barely moved. The leak sits on mobile.</p>
+            <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="face back" inert>
+            <p class="label">GA4 E-Commerce Analytics</p>
+            <p>Over a year of Google Merchandise Store data: <strong>where does the store lose buyers, and which channels, devices and products deserve more investment?</strong></p>
+            <p class="takeaway"><span>Key Takeaway</span>Traffic is growing but sales are not. Mobile visitors rarely reach a product page.</p>
+            <div class="face-actions">
+              <button class="btn primary" type="button" data-open="cs-ga4">Read Case Study</button>
+              <a class="btn" href="https://github.com/RohaanSunil29/Project-Portfolio/tree/main/ga4-ecommerce-analytics" target="_blank" rel="noopener">GitHub ↗</a>
+              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <article class="flip" aria-label="Competitor Overview">
         <div class="flip-inner">
           <div class="face front">
@@ -732,26 +754,6 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
             <div class="face-actions">
               <button class="btn primary" type="button" data-open="cs-research">See Example Output</button>
               <a class="btn" href="https://github.com/RohaanSunil29/AI-Projects/tree/main/research-report-workflow" target="_blank" rel="noopener">GitHub ↗</a>
-              <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="flip" aria-label="GA4 E-Commerce Analytics">
-        <div class="flip-inner">
-          <div class="face front">
-            <img class="cover" src="images/cover-ga4.webp" alt="Illustrative purchase funnel from session start to purchase" width="1000" height="600" loading="lazy">
-            <span class="status">In Progress</span>
-            <h3>GA4 E-Commerce Analytics</h3>
-            <p class="hook">Twelve months of <em>real</em> Google Merchandise Store data, from first visit to purchase.</p>
-            <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
-          </div>
-          <div class="face back" inert>
-            <p class="label">GA4 E-Commerce Analytics</p>
-            <p>Over the last 12 months, including the holiday season: <strong>where did the store lose buyers, and which channels, devices and products deserve more investment?</strong></p>
-            <div class="takeaway"><span>Tools</span><div class="tags" style="margin-top:8px"><span class="tag">GA4</span><span class="tag">Looker Studio</span><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Claude Code</span></div></div>
-            <div class="face-actions">
-              <a class="btn" href="https://github.com/RohaanSunil29/Project-Portfolio/tree/main/ga4-ecommerce-analytics" target="_blank" rel="noopener">GitHub ↗</a>
               <button class="flip-btn ghost" type="button" data-flip><span aria-hidden="true">↺</span> Back</button>
             </div>
           </div>
@@ -838,6 +840,31 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
           <p class="note">Sources: manufacturer price lists and French motoring press (list prices before aids, WLTP range); AAA Data via Beev (registrations).</p>
         </div>
         <div class="cta" style="margin-top:4px"><a class="btn" href="https://github.com/RohaanSunil29/AI-Projects" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+      </div>
+    </dialog>
+    <dialog class="cs" id="cs-ga4" aria-labelledby="cs-ga4-t">
+      <div class="case cs-body">
+        <button class="cs-close" type="button" aria-label="Close">×</button>
+        <div class="case-head" style="padding-right:52px"><h3 id="cs-ga4-t">GA4 E-Commerce Analytics</h3><span class="status">Data Project</span></div>
+        <div class="split">
+          <div class="stack">
+            <p>The Google Merchandise Store is a real, live e-commerce site. This analysis covers 1 October 2025 to 30 September 2026, holiday season included, and asks where the store loses buyers and which channels, devices and products deserve more investment.</p>
+            <dl>
+              <div><dt>Approach</dt><dd>Aggregated GA4 data exported through Looker Studio, cleaned and checked in PostgreSQL with six SQL scripts, then modelled in Power BI with DAX measures across a five-page dashboard and a what-if checkout simulator.</dd></div>
+              <div><dt>Key Findings</dt><dd>Mobile is <strong>63% of users but about 10% of buyers</strong>, and 78% of users never view a product. Of users who begin checkout, 26% complete it on mobile against 56% on desktop. Email and Referral visits are worth over twice the average, while Direct brings 54% of sessions but 48% of revenue. Black Friday to Cyber Monday earned 2.5x a normal day on almost the same traffic. September sessions rose 42% year over year, but revenue rose 0.2%.</dd></div>
+              <div><dt>Recommendations</dt><dd>Fix the mobile journey, from product discovery to checkout: matching desktop checkout completion is worth about 1,470 extra buyers (+11%). Manage the range around best sellers, and invest in Email, Referral and returning visitors rather than raw volume.</dd></div>
+            </dl>
+            <div class="cta" style="margin-top:4px"><a class="btn primary" href="https://github.com/RohaanSunil29/Project-Portfolio/tree/main/ga4-ecommerce-analytics" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+          </div>
+          <div class="panel">
+            <p class="label">Key Finding</p>
+            <p class="note">Traffic is growing but sales are not. The extra visitors arrive on mobile, where few reach a product page.</p>
+            <p class="label" style="margin-top:20px">Tools</p>
+            <div class="tags" style="margin-top:0"><span class="tag">GA4</span><span class="tag">Looker Studio</span><span class="tag">PostgreSQL</span><span class="tag">Power BI</span><span class="tag">Claude Code</span></div>
+            <p class="label" style="margin-top:20px">Limitations</p>
+            <p class="note">The demo property only holds data from August 2025, so there is no earlier holiday to compare with. The data is aggregated, and the checkout figure is an estimate, not a forecast.</p>
+          </div>
+        </div>
       </div>
     </dialog>
     <dialog class="cs" id="cs-research" aria-labelledby="cs-research-t">
