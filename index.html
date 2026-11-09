@@ -136,6 +136,7 @@ section{padding-block:44px}
 .cover{display:block;width:100%;max-width:100%;height:200px;object-fit:cover;border-radius:16px}
 .takeaway{font-size:16px!important;color:var(--ink)!important;background:var(--bg-deep);border-radius:14px;padding:14px 18px}
 .takeaway span{display:block;font-style:italic;font-size:14px;color:var(--muted);margin-bottom:4px}
+.takeaway ul.kf{margin:2px 0 0;padding-left:18px}.takeaway ul.kf li{margin:3px 0;line-height:1.4}
 details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:15px;font-weight:500;width:max-content;max-width:100%}
 details.more summary::-webkit-details-marker{display:none}
 details.more summary::after{content:"↓";font-size:13px;transition:transform .2s}
@@ -695,13 +696,13 @@ footer{padding-block:8px 32px;font-size:14px;color:var(--muted);text-align:cente
             <img class="cover" src="images/cover-ga4-v5.webp" alt="Power BI funnel: 78% of visitors never view a product" width="1200" height="750" loading="lazy">
             <span class="status">Data Project</span>
             <h3>GA4 E-Commerce Analytics</h3>
-            <p class="hook">Sessions grew <em>42%</em> year over year, yet revenue barely moved. The leak sits on mobile.</p>
+            <p class="hook">Sessions grew <em>42%</em> year over year, yet revenue barely moved. Why does this happen?</p>
             <button class="flip-btn" type="button" data-flip>See the Challenge <span aria-hidden="true">↻</span></button>
           </div>
           <div class="face back" inert>
             <p class="label">GA4 E-Commerce Analytics</p>
             <p>Over a year of Google Merchandise Store data: <strong>where does the store lose buyers, and which channels, devices and products deserve more investment?</strong></p>
-            <p class="takeaway"><span>Key Takeaway</span>Traffic is growing but sales are not. Mobile visitors rarely reach a product page.</p>
+            <div class="takeaway"><span>Key Findings</span><ul class="kf"><li>Traffic is up, but sales are not</li><li>Mobile is <strong>63%</strong> of users but about <strong>10%</strong> of buyers</li><li>Mobile checkout completes half as often as desktop</li></ul></div>
             <div class="face-actions">
               <button class="btn primary" type="button" data-open="cs-ga4">Read Case Study</button>
               <a class="btn" href="https://github.com/RohaanSunil29/Project-Portfolio/tree/main/ga4-ecommerce-analytics" target="_blank" rel="noopener">GitHub ↗</a>
